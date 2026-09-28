@@ -508,6 +508,49 @@ footer{border-top:1px solid var(--line);background:var(--surface);padding:clamp(
   #dzToggle{left:12px;bottom:calc(84px + env(safe-area-inset-bottom));width:46px;height:46px}
   #dzToggle svg{width:21px;height:21px}
 }
+
+/* ---------- Режим визуального редактирования элементов ---------- */
+body.dz-editing,body.dz-editing *{cursor:crosshair}
+body.dz-editing *{touch-action:none}
+body.dz-editing [contenteditable="true"]{cursor:text}
+#dzPanel,#dzPanel *,#dzTools,#dzTools *{touch-action:auto}
+body.dz-editing .menu-track{animation-play-state:paused}
+.dz-hover{outline:2px dashed rgba(224,164,88,.65)!important;outline-offset:2px}
+.dz-sel{outline:2px solid #E0A458!important;outline-offset:2px}
+#dzHint{
+  position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:98;pointer-events:none;
+  background:rgba(15,12,9,.96);border:1px solid var(--gold);color:#F4EFE6;
+  font-size:12px;font-weight:600;padding:9px 16px;border-radius:999px;
+  font-family:'Manrope',sans-serif;white-space:nowrap;box-shadow:0 8px 30px rgba(0,0,0,.5);
+}
+#dzTools{
+  position:fixed;z-index:99;display:none;gap:6px;background:rgba(15,12,9,.97);
+  border:1px solid var(--line);border-radius:12px;padding:6px;
+  box-shadow:0 10px 34px rgba(0,0,0,.55);font-family:'Manrope',sans-serif;
+}
+#dzTools button{border:1px solid var(--line);background:transparent;color:#F4EFE6;border-radius:8px;padding:7px 10px;font-size:11.5px;font-weight:700;transition:.2s;white-space:nowrap;cursor:pointer}
+#dzTools button:hover{border-color:var(--gold);color:var(--gold)}
+#dzElBox{border-bottom:1px solid var(--line)}
+.dz-elmode{padding:12px 20px}
+.dz-elmode button{
+  width:100%;height:42px;border-radius:999px;border:1px solid var(--gold);background:transparent;
+  color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;transition:.3s;cursor:pointer;
+}
+.dz-elmode button.on{background:var(--gold);color:#0C0B09}
+.dz-elmode-hint{margin-top:8px;font-size:11px;line-height:1.5;color:rgba(244,239,230,.5)}
+.dz-elsel{padding:0 20px 14px}
+.dz-elsel-name{font-size:11px;font-weight:800;color:var(--gold);margin-bottom:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dz-elcolors{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 10px}
+#dzElReset{width:100%;height:38px;border-radius:999px;border:1px solid var(--line);background:none;color:rgba(244,239,230,.7);font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+#dzElReset:hover{border-color:var(--gold);color:var(--gold)}
+.dz-hidden-list{padding:0 20px 14px}
+.dz-hidden-list > span{display:block;font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.dz-hidden-item{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;color:rgba(244,239,230,.75);padding:6px 0;border-bottom:1px dashed var(--line)}
+.dz-hidden-item i{font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:220px}
+.dz-hidden-item button{border:1px solid var(--line);background:none;color:var(--gold);border-radius:999px;font-size:10.5px;padding:4px 12px;font-weight:700;flex:none;cursor:pointer}
+@media(max-width:899px){
+  #dzHint{font-size:10.5px;max-width:94vw;white-space:normal;text-align:center;line-height:1.4}
+}
 </style>
 </head>
 <body>
@@ -1134,7 +1177,7 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
   </button>
   <div id="dzCard">
     <div class="dz-head"><b>Настройки дизайна</b><button id="dzClose" aria-label="Закрыть">✕</button></div>
-    <div class="dz-note">Эту панель видите только вы — она открывается по ссылке с <b>?edit=1</b>. Крутите ползунки: сайт меняется сразу, настройки сохраняются в вашем браузере. Когда результат понравится — нажмите «Скопировать настройки» и пришлите текст разработчику, он закрепит их в коде насовсем.</div>
+    <div class="dz-note">Эту панель видите только вы — она открывается по ссылке с <b>?edit=1</b>. Крутите ползунки: сайт меняется сразу, настройки сохраняются в вашем браузере. Кнопка «Режим элементов» ниже позволяет двигать блоки мышью, править текст двойным кликом и менять фото. Когда результат понравится — нажмите «Скопировать настройки» и пришлите текст разработчику, он закрепит их в коде насовсем.</div>
     <div class="dz-body" id="dzBody"></div>
     <div class="dz-foot">
       <button id="dzCopy">Скопировать настройки</button>
@@ -1303,7 +1346,7 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
   }
   const copyBtn=document.getElementById('dzCopy');
   copyBtn.addEventListener('click',()=>{
-    const txt=exportTxt();
+    const txt=exportTxt()+(window.__dzExportExtra?'\n\n'+window.__dzExportExtra():'');
     const done=()=>{copyBtn.textContent='Скопировано ✓ пришлите мне';setTimeout(()=>{copyBtn.textContent='Скопировать настройки';},2400);};
     if(navigator.clipboard&&navigator.clipboard.writeText){
       navigator.clipboard.writeText(txt).then(done).catch(()=>fb());
@@ -1324,6 +1367,299 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
     store={};
     render();
   });
+})();
+</script>
+<script>
+/* ===== Режим визуального редактирования элементов (только по ?edit=1) ===== */
+(function(){
+  if(!/[?#&]edit/.test(location.href))return;
+  const KEY='kv9_edits';
+  let edits={};
+  try{edits=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  let editMode=false,sel=null,selPath=null,hoverEl=null,drag=null;
+
+  function isOurs(el){return !!(el&&el.closest&&el.closest('#dzPanel,#dzTools,#dzHint'));}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(edits));}catch(e){}}
+  function selOf(el){
+    if(!el||el===document.body||el===document.documentElement)return 'body';
+    if(el.id)return '#'+CSS.escape(el.id);
+    const parts=[];let cur=el;
+    while(cur&&cur!==document.body&&parts.length<7){
+      let s=cur.tagName.toLowerCase();
+      const cls=[...cur.classList].filter(c=>c!=='dz-sel'&&c!=='dz-hover');
+      if(cls.length)s+='.'+cls.map(c=>CSS.escape(c)).join('.');
+      const p=cur.parentElement;
+      if(p){
+        const same=[...p.children].filter(c=>c.tagName===cur.tagName);
+        if(same.length>1)s+=':nth-of-type('+(same.indexOf(cur)+1)+')';
+      }
+      parts.unshift(s);
+      cur=p;
+      if(cur&&cur.id){parts.unshift('#'+CSS.escape(cur.id));break;}
+    }
+    return parts.join(' > ');
+  }
+  function findEl(p){try{return document.querySelector(p);}catch(e){return null;}}
+  function ensureEd(path,el){
+    if(!edits[path]){
+      edits[path]={orig:{text:el.innerText}};
+      if(el.tagName==='IMG')edits[path].orig.img=el.getAttribute('src');
+    }
+    return edits[path];
+  }
+  function applyEdit(el,e){
+    if(e.styles)Object.entries(e.styles).forEach(kv=>el.style.setProperty(kv[0],kv[1]));
+    if(e.move)el.style.transform='translate('+e.move[0]+'px,'+e.move[1]+'px)';
+    if(e.text!=null)el.innerText=e.text;
+    if(e.img)el.src=e.img;
+  }
+  /* восстановить сохранённые правки элементов */
+  Object.entries(edits).forEach(([p,e])=>{const el=findEl(p);if(el)applyEdit(el,e);});
+
+  /* --- всплывающая панелька действий и подсказка --- */
+  const tools=document.createElement('div');tools.id='dzTools';
+  tools.innerHTML='<button data-a="text">✏ Текст</button><button data-a="up">↑ Родитель</button><button data-a="img" style="display:none">🖼 Фото</button><button data-a="hide">Скрыть</button><button data-a="x">✕</button>';
+  document.body.appendChild(tools);
+  const hint=document.createElement('div');hint.id='dzHint';hint.style.display='none';
+  hint.textContent='Режим элементов: клик — выбрать · тащите — двигать · двойной клик — править текст · Esc — выйти';
+  document.body.appendChild(hint);
+
+  function rgb2hex(s){
+    const m=s&&s.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    if(!m)return '#000000';
+    return '#'+[m[1],m[2],m[3]].map(n=>(+n).toString(16).padStart(2,'0')).join('');
+  }
+  function shortName(el){
+    const t=el.tagName.toLowerCase();
+    const c=[...el.classList].filter(x=>x!=='dz-sel'&&x!=='dz-hover')[0];
+    const txt=(el.innerText||'').trim();
+    return t+(c?'.'+c:'')+(txt?' — «'+txt.slice(0,24)+(txt.length>24?'…':'')+'»':'');
+  }
+
+  function select(el){
+    clearSel();
+    if(!el||isOurs(el)||el===document.body||el===document.documentElement)return;
+    sel=el;selPath=selOf(el);
+    el.classList.add('dz-sel');
+    tools.querySelector('[data-a=img]').style.display=el.tagName==='IMG'?'':'none';
+    tools.style.display='flex';positionTools();
+    renderElBox();
+  }
+  function clearSel(){
+    if(sel)sel.classList.remove('dz-sel');
+    sel=null;selPath=null;tools.style.display='none';
+    renderElBox();
+  }
+  function positionTools(){
+    if(!sel)return;
+    const r=sel.getBoundingClientRect();
+    const w=tools.offsetWidth;
+    tools.style.left=Math.max(8,Math.min(r.left,window.innerWidth-w-8))+'px';
+    tools.style.top=Math.max(8,r.top-48)+'px';
+  }
+  window.addEventListener('scroll',()=>{if(sel)positionTools();},true);
+  window.addEventListener('resize',()=>{if(sel)positionTools();});
+
+  function setStyle(k,v){
+    if(!sel)return;
+    const ed=ensureEd(selPath,sel);ed.styles=ed.styles||{};
+    ed.styles[k]=v;sel.style.setProperty(k,v);save();
+  }
+
+  /* --- блок управления в боковой панели --- */
+  const note=document.querySelector('#dzPanel .dz-note');
+  const box=document.createElement('div');box.id='dzElBox';
+  note.insertAdjacentElement('afterend',box);
+
+  function rowHtml(label,key,min,max,step,val,unit){
+    return '<div class="dz-row"><label><span>'+label+'</span><output>'+val+(unit==='%'?'%':' px')+'</output></label>'
+      +'<input type="range" data-r="'+key+'" data-u="'+unit+'" min="'+min+'" max="'+max+'" step="'+step+'" value="'+val+'"></div>';
+  }
+  function renderElBox(){
+    let h='<div class="dz-elmode"><button id="dzModeBtn" class="'+(editMode?'on':'')+'">'
+      +(editMode?'Выйти из режима элементов':'Режим элементов')+'</button>'
+      +'<div class="dz-elmode-hint">'+(editMode
+        ?'Кликните любой элемент на странице — появятся его настройки. Тащите мышью, чтобы двигать. Двойной клик — править текст.'
+        :'Включите, чтобы двигать блоки, править текст и менять фото прямо на странице.')+'</div></div>';
+    if(sel){
+      const cs=getComputedStyle(sel);
+      const fs=Math.round(parseFloat(cs.fontSize));
+      const mt=Math.round(parseFloat(cs.marginTop));
+      const mb=Math.round(parseFloat(cs.marginBottom));
+      const br=Math.round(parseFloat(cs.borderRadius))||0;
+      h+='<div class="dz-elsel"><div class="dz-elsel-name" title="'+selPath+'">'+shortName(sel)+'</div>'
+        +rowHtml('Размер шрифта','fs',8,90,1,fs,'px');
+      if(sel.tagName==='IMG'){
+        const pw=sel.parentElement?sel.parentElement.getBoundingClientRect().width:1;
+        h+=rowHtml('Ширина фото','w',10,100,1,Math.round(sel.getBoundingClientRect().width/pw*100),'%');
+      }
+      h+=rowHtml('Отступ сверху','mt',-80,160,1,mt,'px')
+        +rowHtml('Отступ снизу','mb',-80,160,1,mb,'px')
+        +rowHtml('Скругление','br',0,40,1,br,'px')
+        +'<div class="dz-elcolors">'
+        +'<label class="dz-color"><input type="color" data-c="color" value="'+rgb2hex(cs.color)+'"><span>Текст</span></label>'
+        +'<label class="dz-color"><input type="color" data-c="background" value="'+rgb2hex(cs.backgroundColor)+'"><span>Фон</span></label>'
+        +'</div><button id="dzElReset">Сбросить этот элемент</button></div>';
+    }
+    const hidden=Object.entries(edits).filter(([p,e])=>e.styles&&e.styles['display']==='none');
+    if(hidden.length){
+      h+='<div class="dz-hidden-list"><span>Скрытые элементы</span>';
+      hidden.forEach(([p])=>{h+='<div class="dz-hidden-item"><i title="'+p+'">'+p+'</i><button data-unhide="'+p.replace(/"/g,'&quot;')+'">Вернуть</button></div>';});
+      h+='</div>';
+    }
+    box.innerHTML=h;
+    wireBox();
+  }
+  function wireBox(){
+    const mb=document.getElementById('dzModeBtn');
+    if(mb)mb.onclick=()=>{
+      editMode=!editMode;
+      document.body.classList.toggle('dz-editing',editMode);
+      hint.style.display=editMode?'':'none';
+      if(!editMode)clearSel();
+      renderElBox();
+    };
+    const er=document.getElementById('dzElReset');
+    if(er)er.onclick=()=>{
+      const e=edits[selPath];
+      if(e){
+        ['font-size','width','margin-top','margin-bottom','color','background','background-color','border-radius','transform','display'].forEach(k=>sel.style.removeProperty(k));
+        if(e.orig&&e.orig.text!=null&&e.text!=null)sel.innerText=e.orig.text;
+        if(e.orig&&e.orig.img&&e.img)sel.src=e.orig.img;
+        delete edits[selPath];save();
+      }
+      clearSel();
+    };
+    box.querySelectorAll('[data-r]').forEach(inp=>{
+      inp.oninput=()=>{
+        const map={fs:'font-size',w:'width',mt:'margin-top',mb:'margin-bottom',br:'border-radius'};
+        const u=inp.dataset.u;
+        setStyle(map[inp.dataset.r],inp.value+u);
+        inp.closest('.dz-row').querySelector('output').textContent=inp.value+(u==='%'?'%':' px');
+      };
+    });
+    box.querySelectorAll('[data-c]').forEach(inp=>{
+      inp.oninput=()=>setStyle(inp.dataset.c==='background'?'background':inp.dataset.c,inp.value);
+    });
+    box.querySelectorAll('[data-unhide]').forEach(b=>{
+      b.onclick=()=>{
+        const p=b.dataset.unhide;const el=findEl(p);
+        if(edits[p]&&edits[p].styles)delete edits[p].styles['display'];
+        if(el)el.style.removeProperty('display');
+        save();renderElBox();
+      };
+    });
+  }
+  renderElBox();
+
+  /* --- панелька действий --- */
+  tools.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b||!sel)return;
+    e.stopPropagation();
+    const a=b.dataset.a;
+    if(a==='x')clearSel();
+    if(a==='up'&&sel.parentElement&&sel.parentElement!==document.body)select(sel.parentElement);
+    if(a==='text')startTextEdit(sel);
+    if(a==='hide'){
+      const ed=ensureEd(selPath,sel);ed.styles=ed.styles||{};
+      ed.styles['display']='none';sel.style.display='none';
+      save();clearSel();
+    }
+    if(a==='img'&&sel.tagName==='IMG'){
+      const u=prompt('Ссылка на новое фото (https://…):',sel.getAttribute('src')||'');
+      if(u&&u.trim()){
+        const ed=ensureEd(selPath,sel);ed.img=u.trim();
+        sel.removeAttribute('srcset');sel.src=u.trim();save();
+      }
+    }
+  });
+
+  /* --- редактирование текста --- */
+  function startTextEdit(el){
+    if(!el||el.tagName==='IMG'||el.closest('svg'))return;
+    select(el);
+    el.contentEditable='true';
+    el.focus();
+    el.addEventListener('blur',()=>{
+      el.contentEditable='false';
+      const ed=ensureEd(selOf(el),el);
+      ed.text=el.innerText.trim();
+      save();
+    },{once:true});
+  }
+
+  /* --- глобальные события режима --- */
+  document.addEventListener('pointerover',e=>{
+    if(!editMode||isOurs(e.target)||e.target===document.body||e.target===document.documentElement)return;
+    if(hoverEl&&hoverEl!==sel)hoverEl.classList.remove('dz-hover');
+    hoverEl=e.target;
+    if(hoverEl!==sel)hoverEl.classList.add('dz-hover');
+  },true);
+  document.addEventListener('pointerdown',e=>{
+    if(!editMode||isOurs(e.target))return;
+    if(e.target.closest('[contenteditable="true"]'))return;
+    drag={el:e.target,x:e.clientX,y:e.clientY,moved:false,last:null};
+    drag.path=selOf(drag.el);
+  },true);
+  document.addEventListener('pointermove',e=>{
+    if(!drag||!editMode)return;
+    const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+    if(!drag.moved&&Math.hypot(dx,dy)>5){drag.moved=true;select(drag.el);}
+    if(drag.moved){
+      const ed=ensureEd(drag.path,drag.el);
+      const base=drag.last||ed.move||[0,0];
+      drag.last=[Math.round(base[0]+dx),Math.round(base[1]+dy)];
+      drag.el.style.transform='translate('+drag.last[0]+'px,'+drag.last[1]+'px)';
+      drag.x=e.clientX;drag.y=e.clientY;
+      positionTools();
+    }
+  },true);
+  window.addEventListener('pointerup',()=>{
+    if(drag&&drag.moved){ensureEd(drag.path,drag.el).move=drag.last;save();}
+    drag=null;
+  },true);
+  document.addEventListener('click',e=>{
+    if(!editMode||isOurs(e.target))return;
+    if(e.target.closest('[contenteditable="true"]'))return;
+    e.preventDefault();e.stopPropagation();
+    select(e.target);
+  },true);
+  document.addEventListener('dblclick',e=>{
+    if(!editMode||isOurs(e.target))return;
+    if(e.target.closest('[contenteditable="true"]'))return;
+    e.preventDefault();e.stopPropagation();
+    startTextEdit(e.target);
+  },true);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&editMode){
+      editMode=false;
+      document.body.classList.remove('dz-editing');
+      hint.style.display='none';
+      clearSel();renderElBox();
+    }
+  });
+
+  /* --- сброс «всё» из основной панели чистит и правки элементов --- */
+  const rst=document.getElementById('dzReset');
+  if(rst)rst.addEventListener('click',()=>{
+    if(Object.keys(edits).length){
+      localStorage.removeItem(KEY);
+      setTimeout(()=>location.reload(),60);
+    }
+  });
+
+  /* --- экспорт правок элементов вместе с настройками --- */
+  window.__dzExportExtra=function(){
+    const lines=[];
+    Object.entries(edits).forEach(([p,e])=>{
+      const st=Object.assign({},e.styles||{});
+      if(e.move)st['transform']='translate('+e.move[0]+'px,'+e.move[1]+'px)';
+      if(Object.keys(st).length)lines.push(p+' { '+Object.entries(st).map(kv=>kv[0]+': '+kv[1]+';').join(' ')+' }');
+      if(e.text!=null)lines.push('ТЕКСТ '+p+' → «'+e.text+'»');
+      if(e.img)lines.push('ФОТО '+p+' → '+e.img);
+    });
+    return lines.length? '=== ИЗМЕНЕНИЯ ЭЛЕМЕНТОВ ===\n'+lines.join('\n') : '';
+  };
 })();
 </script>
 </body>
