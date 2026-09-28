@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Бильярдный клуб «Квартира №9» у м. Владыкино | Ботаническая, 14А</title>
+<meta name="description" content="Бильярдный клуб «Квартира №9» на Ботанической, 14А: американский пул от 500 ₽/час, VIP-комнаты, PS5, бар и кухня. 3 минуты от м. Владыкино. Рейтинг 5.0 на Яндекс Картах.">
+<meta property="og:title" content="Квартира №9 — уютные бильярды Москвы">
+<meta property="og:description" content="Бильярд, PS5, бар и кухня у м. Владыкино. Стол от 500 ₽/час. Бронируйте онлайн.">
+<meta property="og:image" content="assets/img/hall-wide.jpg">
+<link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarOrPub",
+  "name": "Квартира №9",
+  "description": "Бильярдный клуб, спортбар, развлекательный центр. Уютные бильярды Москвы.",
+  "address": {"@type": "PostalAddress", "streetAddress": "Ботаническая улица, 14А", "addressLocality": "Москва", "addressCountry": "RU"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 55.846482, "longitude": 37.586994},
+  "telephone": "+79881966054",
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "327"},
+  "openingHours": ["Mo-Th 14:00-02:00", "Fr-Sa 14:00-05:00", "Su 14:00-02:00"],
+  "url": "https://kv-9.clients.site/"
+}
+</script>
+<style>
+:root{
+  --bg:#0C0B09;
+  --surface:#1A1611;
+  --card:#221C15;
+  --line:rgba(224,164,88,.14);
+  --gold:#E0A458;
+  --gold-deep:#C0924E;
+  --text:#F4EFE6;
+  --muted:rgba(244,239,230,.56);
+  --radius:26px;
+  --disp:'Unbounded', 'Manrope', sans-serif;
+  --sans:'Manrope', -apple-system, sans-serif;
+  --pad:clamp(20px,5vw,80px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:var(--body-fs);line-height:1.6;-webkit-font-smoothing:antialiased}
+html,body{overflow-x:hidden;overflow-x:clip}
+::selection{background:var(--gold);color:#0C0B09}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+/* ---------- Кнопки ---------- */
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--btn-radius);
+  height:var(--btn-h);padding:0 26px;border:1px solid var(--gold);background:transparent;color:var(--text);
+  font-weight:800;font-size:var(--btn-fs);letter-spacing:.16em;text-transform:uppercase;
+  transition:background .35s,transform .35s,border-color .35s;white-space:nowrap;line-height:1;
+}
+.btn .arr{
+  position:absolute;right:9px;top:50%;transform:translateY(-50%);
+  width:36px;height:36px;border-radius:50%;background:var(--gold);color:#0C0B09;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .35s;
+}
+.btn:has(.arr){padding-right:54px}
+.btn.go{padding:0 18px}
+.btn.go:has(.arr){padding-right:50px}
+.btn .arr svg{display:block}
+.btn:hover{background:rgba(224,164,88,.1);transform:translateY(-2px)}
+.btn:hover .arr{transform:translateY(-50%) rotate(-45deg)}
+.btn-solid{background:var(--gold);color:#0C0B09;border-color:var(--gold)}
+.btn-solid:hover{background:var(--gold-hover)}
+.btn-solid .arr{background:#0C0B09;color:var(--gold)}
+
+/* ---------- Шапка ---------- */
+.header{
+  position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:80;
+  width:calc(100% - 28px);max-width:1240px;
+  display:flex;align-items:center;gap:18px;
+  background:rgba(20,17,13,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--line);border-radius:22px;padding:10px 14px;
+}
+.header .logo{display:flex;align-items:center;gap:10px;flex:none}
+.header .logo img{width:44px;height:44px;border-radius:10px}
+.header .logo .nm{font-family:var(--disp);font-weight:700;font-size:14px;line-height:1.15}
+.header .logo .nm small{display:block;font-family:var(--sans);font-weight:600;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.h-nav{display:flex;gap:4px;margin-left:auto}
+.h-nav a{position:relative;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(244,239,230,.74);padding:10px 13px;transition:color .3s;white-space:nowrap}
+.h-nav a:hover{color:var(--text)}
+.h-nav a.on{color:var(--text)}
+.h-nav a.on::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;border-radius:2px;background:var(--gold)}
+.h-phone{display:none;flex-direction:column;line-height:1.25;text-align:right}
+.h-phone b{font-size:14.5px;font-weight:800}
+.h-phone span{font-size:10.5px;color:var(--muted);letter-spacing:.06em;white-space:nowrap}
+.h-msgr{display:none;gap:8px}
+.h-msgr a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold);transition:border-color .3s,background .3s}
+.h-msgr a svg{display:block}
+.h-msgr a[aria-label="WhatsApp"] svg{transform:translate(0,-1px)}
+.h-msgr a[aria-label="Telegram"] svg{transform:translate(1px,1px)}
+.h-msgr a:hover{border-color:var(--gold);background:rgba(224,164,88,.1)}
+.h-cta{flex:none;margin-left:0}
+.h-burger{
+  display:flex;margin-left:auto;width:44px;height:44px;flex:none;border-radius:50%;
+  border:1px solid var(--line);background:transparent;align-items:center;justify-content:center;
+  color:var(--gold);transition:border-color .3s,background .3s;
+}
+.h-burger:hover{border-color:var(--gold);background:rgba(224,164,88,.1)}
+@media(min-width:1050px){
+  .header{width:max-content}
+  .h-nav{display:flex}
+  .h-phone{display:flex}
+  .h-msgr{display:flex}
+  .h-burger{display:none}
+}
+@media(max-width:1049px){
+  .h-nav{display:none}
+  .h-phone{display:none}
+  .h-msgr{display:none}
+  .h-cta{display:none}
+}
+@media(max-width:560px){
+  .header{gap:10px;padding:8px 10px}
+  .header .logo .nm{display:none}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  border-radius:0 0 36px 36px;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;animation:heroZoom 14s ease-out forwards}
+@keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,9,.97) 4%,rgba(12,11,9,.45) 46%,rgba(12,11,9,.62) 100%)}
+.hero-inner{position:relative;z-index:2;padding:120px var(--pad) 0}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;border-radius:999px;
+  border:1px solid var(--line);background:rgba(20,17,13,.6);backdrop-filter:blur(8px);
+  padding:9px 16px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:22px;
+}
+.hero-badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.hero h1{
+  font-family:var(--disp);font-weight:900;font-size:var(--h1-fs);
+  line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;max-width:15ch;
+}
+.hero h1 .accent{color:var(--gold);text-shadow:0 0 44px rgba(224,164,88,.35)}
+.hero-sub{margin-top:18px;color:var(--muted);font-size:var(--hero-sub-fs);max-width:52ch}
+.hero-rating{
+  display:inline-flex;align-items:center;gap:10px;width:fit-content;margin-bottom:20px;
+  padding:9px 18px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(12,11,9,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  font-size:13px;font-weight:600;color:var(--muted);transition:border-color .3s;
+}
+.hero-rating .stars{color:var(--gold);font-size:13px;letter-spacing:2px;line-height:1}
+.hero-rating b{font-family:var(--disp);font-weight:700;color:var(--text);font-size:15px}
+.hero-rating:hover{border-color:var(--gold)}
+@media(max-width:560px){
+  .hero-rating{font-size:12px;padding:8px 14px;gap:8px;row-gap:4px}
+  .hero-rating b{font-size:14px}
+}
+.hero-cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:30px}
+.hero-features{
+  position:relative;z-index:2;margin-top:clamp(44px,7vh,80px);
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);background:rgba(12,11,9,.55);backdrop-filter:blur(10px);
+}
+.hero-features .f{
+  display:flex;align-items:center;gap:14px;padding:22px clamp(14px,3vw,34px);
+  font-weight:700;font-size:clamp(11px,1.6vw,14px);letter-spacing:.04em;
+}
+.hero-features .f + .f{border-left:1px solid var(--line)}
+.hero-features svg{color:var(--gold);flex:none}
+.hero-features .f small{display:block;font-weight:500;color:var(--muted);font-size:.86em;letter-spacing:0}
+@media(max-width:899px){
+  .hero{padding-bottom:74px}
+  .hero-features{grid-template-columns:1fr}
+  .hero-features .f{padding:12px 20px;font-size:12.5px}
+  .hero-features .f + .f{border-left:0;border-top:1px solid var(--line)}
+  .hero-features svg{width:20px;height:20px}
+  .hero-features .f small{display:none}
+}
+
+/* ---------- Полоса акций ---------- */
+.promo-strip{
+  margin:clamp(40px,6vw,70px) var(--pad) 0;display:grid;gap:12px;
+}
+@media(min-width:760px){.promo-strip{grid-template-columns:1fr 1fr}}
+.promo-strip .p{
+  display:flex;align-items:center;gap:18px;border:1px dashed rgba(224,164,88,.4);
+  border-radius:18px;padding:18px 22px;background:rgba(224,164,88,.05);
+}
+.promo-strip .pct{font-family:var(--disp);font-weight:900;font-size:clamp(24px,3.4vw,34px);color:var(--gold);white-space:nowrap}
+.promo-strip .tx b{display:block;font-size:14.5px}
+.promo-strip .tx span{font-size:12.5px;color:var(--muted)}
+
+/* ---------- Секции ---------- */
+.section{padding:var(--sec-pad) var(--pad)}
+.sec-title{
+  font-family:var(--disp);font-weight:900;text-transform:uppercase;
+  font-size:var(--title-fs);line-height:1.05;letter-spacing:-.01em;
+}
+.sec-title .accent{color:var(--gold)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:clamp(30px,4vw,52px)}
+.sec-desc{color:var(--muted);max-width:60ch;margin-top:18px;font-size:var(--desc-fs);line-height:1.7}
+.sec-desc b{color:var(--gold);font-weight:700}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Стат-карты ---------- */
+.stats{display:grid;gap:14px;margin-top:clamp(30px,4vw,50px)}
+@media(min-width:820px){.stats{grid-template-columns:repeat(3,1fr)}}
+.stat{
+  position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+  min-height:var(--stat-h);display:flex;align-items:flex-end;background:var(--card);
+}
+.stat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 2000ms ease}
+.stat:hover img{transform:scale(1.08)}
+.stat::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,9,.92) 8%,rgba(12,11,9,.15) 60%,transparent)}
+.stat .tx{position:relative;z-index:2;padding:22px}
+.stat .num{font-family:var(--disp);font-weight:900;font-size:clamp(30px,4vw,42px);color:var(--gold);line-height:1}
+.stat .lbl{font-weight:700;font-size:15px;margin-top:6px}
+.stat .sub2{font-size:14px;color:var(--muted);margin-top:4px}
+.plan-note{
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:clamp(28px,4vw,44px);
+  border:1px solid var(--line);border-radius:18px;padding:20px 24px;background:var(--card);
+}
+.plan-note .txt{flex:1;min-width:260px;color:var(--muted);font-size:14.5px}
+.plan-note .txt b{color:var(--text)}
+</style>
+<style>
+/* ---------- Как добраться ---------- */
+.route-grid{display:grid;gap:14px}
+@media(min-width:900px){.route-grid{grid-template-columns:repeat(3,1fr)}}
+.route-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card);display:flex;flex-direction:column}
+.route-card .ph{position:relative;aspect-ratio:4/2.6;overflow:hidden}
+.route-card .ph img{width:100%;height:100%;object-fit:cover}
+.route-card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,9,.75),transparent 60%)}
+.route-card .cap{
+  position:absolute;left:16px;bottom:14px;z-index:2;display:flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+}
+.route-card .body{padding:20px 22px;display:flex;flex-direction:column;gap:5px;flex:1}
+.route-card .body .k{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.route-card .body .v{font-family:var(--disp);font-weight:700;font-size:clamp(16px,2vw,20px);line-height:1.25}
+.route-card .body .v a:hover{color:var(--gold)}
+.route-card .body .hnt{color:var(--muted);font-size:14px}
+.route-text{color:var(--muted);font-size:16.5px;line-height:1.7;max-width:68ch;text-align:center;margin-left:auto;margin-right:auto}
+.route-text b{color:var(--gold);font-weight:700}
+.help-card{
+  margin:28px auto 0;display:flex;width:fit-content;align-items:center;gap:16px;border:1px solid var(--gold);
+  border-radius:18px;padding:16px 22px;background:rgba(224,164,88,.07);
+}
+.help-card .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.help-card a{font-family:var(--disp);font-weight:700;font-size:18px;color:var(--gold)}
+
+/* ---------- Цены ---------- */
+.prices{background:var(--surface)}
+.tabs{
+  display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:10px;margin-top:clamp(26px,4vw,40px);
+}
+@media(max-width:640px){.tabs{grid-auto-flow:row;grid-auto-columns:auto}}
+.tab{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  border:1px solid var(--line);border-radius:16px;padding:17px 14px;background:transparent;color:var(--muted);
+  font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:all .3s;
+}
+.tab svg{flex:none}
+.tab.on{background:var(--gold);color:#0C0B09;border-color:var(--gold)}
+.price-panel{display:none;margin-top:clamp(28px,4vw,44px);grid-template-columns:1fr;gap:clamp(24px,3vw,44px)}
+.price-panel.on{display:grid}
+@media(min-width:900px){.price-panel{grid-template-columns:1.05fr .95fr;align-items:start}}
+.price-rows{display:flex;flex-direction:column;gap:12px}
+.price-box{
+  border:1px solid var(--line);border-radius:20px;padding:22px 24px;background:var(--card);
+  display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:center;
+}
+.price-box .nm{font-weight:800;font-size:17px;padding-right:10px}
+.price-box .nt{grid-column:1/2;font-size:14px;color:var(--muted);margin-top:2px}
+.price-box .vals{display:flex;gap:26px;grid-column:1/-1;flex-wrap:wrap;margin-top:14px;border-top:1px dashed rgba(224,164,88,.22);padding-top:14px}
+.price-box .val .t{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.price-box .val .p{font-family:var(--disp);font-weight:700;font-size:clamp(21px,2.2vw,25px);color:var(--gold);margin-top:2px}
+.price-box .go{grid-row:1;grid-column:2;align-self:start}
+@media(max-width:640px){
+  .price-box{grid-template-columns:1fr}
+  .price-box .go{grid-row:auto;grid-column:1;justify-self:start;margin-top:6px}
+  .price-box .nt{grid-column:1}
+}
+.price-photo{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:4/3.1}
+.price-photo img{width:100%;height:100%;object-fit:cover}
+.price-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,9,.55),transparent 50%)}
+.price-photo .cap{position:absolute;left:18px;bottom:16px;z-index:2;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+/* галерея */
+.gallery{display:flex;gap:12px;margin-top:clamp(30px,4vw,44px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none}
+.gallery::-webkit-scrollbar{display:none}
+.gallery img{
+  height:var(--gal-h);aspect-ratio:4/3;object-fit:cover;border-radius:18px;
+  scroll-snap-align:start;border:1px solid var(--line);flex:none;
+  transition:transform .5s;
+}
+.gallery img:hover{transform:translateY(-4px)}
+.gal-nav{display:flex;gap:10px;margin-top:6px}
+.gal-nav button{
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--gold);
+  display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s;
+}
+.gal-nav button:hover{border-color:var(--gold);background:rgba(224,164,88,.1)}
+
+/* ---------- Мероприятия ---------- */
+.event-grid{display:grid;gap:clamp(24px,3vw,44px);margin-top:clamp(28px,4vw,44px)}
+@media(min-width:900px){.event-grid{grid-template-columns:1fr 1fr;align-items:center}}
+.event-collage{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch}
+.event-collage img{width:100%;height:100%;object-fit:cover;border-radius:18px;border:1px solid var(--line)}
+.event-collage img:not(.tall){height:auto;aspect-ratio:4/3.2}
+.event-collage .tall{grid-row:span 2;min-height:340px}
+.fits{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}
+.fits span{
+  border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:12.5px;font-weight:700;
+  letter-spacing:.06em;color:var(--muted);
+}
+.fits span b{color:var(--gold)}
+
+/* ---------- Меню ---------- */
+.menu-grid{display:grid;gap:clamp(24px,3vw,44px);align-items:center}
+@media(min-width:900px){.menu-grid{grid-template-columns:1fr 1fr}}
+.menu-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.menu-hits{margin-top:28px;display:flex;flex-direction:column;gap:13px;max-width:480px}
+.menu-hits .hit{display:flex;align-items:baseline;gap:12px;font-size:15px;font-weight:600;color:var(--text)}
+.menu-hits .hit i{flex:1;border-bottom:1px dashed rgba(224,164,88,.28);transform:translateY(-4px);min-width:24px}
+.menu-hits .hit b{font-family:var(--disp);font-weight:700;color:var(--gold);font-size:16px;white-space:nowrap}
+.menu-marquee{overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:var(--card);position:relative}
+.menu-track{display:flex;gap:12px;width:max-content;padding:12px;animation:menuScroll var(--marquee) linear infinite}
+.menu-marquee:hover .menu-track{animation-play-state:paused}
+.menu-track img{
+  width:var(--menu-img-w);height:var(--menu-img-h);object-fit:cover;flex:none;
+  border-radius:14px;border:1px solid var(--line);cursor:pointer;opacity:.94;transition:opacity .3s;
+}
+.menu-track img:hover{opacity:1}
+@keyframes menuScroll{to{transform:translateX(calc(-50% - 6px))}}
+@media(max-width:899px){
+  .menu-marquee{margin-top:10px}
+  .menu-btns .btn{flex:1;justify-content:center}
+}
+
+/* ---------- Футер ---------- */
+footer{border-top:1px solid var(--line);background:var(--surface);padding:clamp(48px,7vw,80px) var(--pad) 110px}
+.foot-grid{display:grid;gap:40px}
+@media(min-width:900px){.foot-grid{grid-template-columns:1.2fr 1fr 1fr}}
+.foot-grid .f-logo{display:flex;align-items:center;gap:14px}
+.foot-grid .f-logo img{width:64px;height:64px;border-radius:14px}
+.foot-grid .f-logo .nm{font-family:var(--disp);font-weight:700;font-size:17px;line-height:1.2}
+.foot-grid .f-logo .nm small{display:block;font-family:var(--sans);font-weight:600;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.f-col .h{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:14px}
+.f-col a{display:block;padding:5px 0;color:var(--muted);font-size:14.5px;transition:color .3s}
+.f-col a:hover{color:var(--text)}
+.f-legal{margin-top:36px;color:rgba(244,239,230,.34);font-size:11.5px;line-height:1.75}
+.f-legal-links{display:flex;gap:8px 22px;flex-wrap:wrap;margin-bottom:14px}
+.f-legal-links a{color:var(--muted);font-size:12.5px;text-decoration:underline;text-underline-offset:3px;transition:color .3s}
+.f-legal-links a:hover{color:var(--gold)}
+
+/* ---------- Мобильная панель ---------- */
+.mobile-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:75;display:flex;gap:8px;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(20,17,13,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-top:1px solid var(--line);
+}
+.mobile-bar .btn{flex:1;padding:0 10px;border-width:1px}
+.mobile-bar .btn .arr{display:none}
+.mobile-bar .ic{
+  width:48px;height:48px;flex:none;border-radius:50%;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--gold);
+}
+.mobile-bar .ic svg{display:block}
+.mobile-bar .ic[aria-label="Написать в WhatsApp"] svg{transform:translate(0,-1px)}
+@media(min-width:900px){.mobile-bar{display:none}}
+@media(max-width:899px){body{padding-bottom:0}}
+
+/* ---------- Кнопка «наверх» ---------- */
+.to-top{
+  position:fixed;right:12px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:74;
+  width:48px;height:48px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(20,17,13,.9);backdrop-filter:blur(12px);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:opacity .3s,transform .3s,border-color .3s;
+}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}
+.to-top:hover{border-color:var(--gold)}
+@media(min-width:900px){.to-top{bottom:24px;right:24px}}
+
+/* ---------- Меню разделов (моб.) ---------- */
+.modal-card.nav-modal-card{max-width:420px;height:auto;max-height:88svh;padding:10px 8px 18px;display:flex;flex-direction:column}
+.modal-card.nav-modal-card a.nav-link{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:17px 18px;border-radius:16px;font-family:var(--disp);font-weight:700;font-size:16px;
+  text-transform:uppercase;letter-spacing:.02em;transition:background .3s,color .3s;
+}
+.modal-card.nav-modal-card a.nav-link small{font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--muted);font-weight:700}
+.modal-card.nav-modal-card a.nav-link:hover{background:rgba(224,164,88,.1);color:var(--gold)}
+.modal-card.nav-modal-card .nav-foot{display:flex;gap:8px;margin:10px 14px 0}
+.modal-card.nav-modal-card .nav-foot a{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:9px;height:48px;border-radius:999px;
+  border:1px solid var(--line);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);
+}
+.modal-card.nav-modal-card .nav-foot a:hover{border-color:var(--gold);background:rgba(224,164,88,.08)}
+
+/* ---------- Модальные окна ---------- */
+.modal{
+  position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+  background:rgba(8,7,5,.82);backdrop-filter:blur(8px);padding:16px;
+}
+.modal.open{display:flex;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0}}
+.modal-card{
+  width:100%;max-width:1060px;height:min(760px,92svh);position:relative;
+  background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.modal-card iframe{width:100%;height:100%;border:0;flex:1}
+.modal-close{
+  position:absolute;top:12px;right:12px;z-index:5;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:rgba(12,11,9,.75);color:var(--text);font-size:20px;
+  display:flex;align-items:center;justify-content:center;transition:border-color .3s,color .3s;
+}
+.modal-close:hover{border-color:var(--gold);color:var(--gold)}
+.modal-card .m-title{padding:20px 24px 14px;font-family:var(--disp);font-weight:700;font-size:19px;border-bottom:1px solid var(--line)}
+.lightbox-img{width:100%;height:100%;object-fit:contain;background:#000}
+.menu-modal-card{max-width:560px;height:auto;max-height:92svh;display:flex;flex-direction:column}
+.menu-modal-card .lightbox-wrap{overflow:auto;flex:1}
+</style>
+<style>
+/* ---------- Переменные для панели настроек (множители ×1 = текущий вид) ---------- */
+:root{
+  --pad:calc(clamp(20px,5vw,80px) * var(--s-pad,1));
+  --sec-pad:calc(clamp(72px,9vw,120px) * var(--s-secpad,1));
+  --h1-fs:calc(clamp(30px,7.2vw,84px) * var(--s-h1,1));
+  --hero-sub-fs:calc(clamp(14.5px,2.4vw,17px) * var(--s-hero-sub,1));
+  --title-fs:calc(clamp(26px,5.4vw,58px) * var(--s-title,1));
+  --desc-fs:calc(16.5px * var(--s-desc,1));
+  --body-fs:calc(16px * var(--s-body,1));
+  --btn-h:calc(56px * var(--s-btnh,1));
+  --btn-fs:calc(12.5px * var(--s-btnfs,1));
+  --btn-radius:56px;
+  --gal-h:calc(clamp(140px,20vw,220px) * var(--s-galh,1));
+  --menu-img-h:calc(clamp(330px,38vw,470px) * var(--s-menuh,1));
+  --menu-img-w:calc(clamp(250px,24vw,320px) * var(--s-menuw,1));
+  --stat-h:calc(300px * var(--s-stath,1));
+  --marquee:26s;
+  --gold-hover:#EDB66C;
+}
+
+/* ---------- Панель настроек дизайна (видна только по ?edit=1) ---------- */
+#dzPanel{font-family:'Manrope',sans-serif}
+#dzToggle{
+  position:fixed;left:16px;bottom:24px;z-index:96;width:52px;height:52px;border-radius:50%;
+  background:var(--gold);color:#0C0B09;border:none;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 34px rgba(0,0,0,.5);transition:transform .4s,box-shadow .3s;cursor:pointer;
+}
+#dzToggle:hover{transform:rotate(45deg);box-shadow:0 10px 40px rgba(224,164,88,.35)}
+#dzToggle svg{width:24px;height:24px}
+#dzCard{
+  position:fixed;left:0;top:0;bottom:0;z-index:97;width:min(348px,94vw);
+  background:rgba(15,12,9,.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-right:1px solid var(--line);display:flex;flex-direction:column;
+  transform:translateX(-106%);transition:transform .5s cubic-bezier(.22,1,.36,1);
+  box-shadow:30px 0 80px rgba(0,0,0,.45);
+}
+#dzCard.open{transform:none}
+.dz-head{display:flex;align-items:center;justify-content:space-between;padding:20px 20px 14px;border-bottom:1px solid var(--line)}
+.dz-head b{font-family:'Unbounded',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#F4EFE6}
+#dzClose{background:none;border:1px solid var(--line);color:#F4EFE6;width:32px;height:32px;border-radius:50%;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;transition:.3s}
+#dzClose:hover{border-color:var(--gold);color:var(--gold)}
+.dz-note{padding:12px 20px;font-size:11.5px;line-height:1.55;color:rgba(244,239,230,.55);border-bottom:1px solid var(--line)}
+.dz-body{flex:1;overflow-y:auto;padding:6px 20px 20px}
+.dz-group{margin-top:18px}
+.dz-group > span{display:block;font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.dz-row{margin-bottom:13px}
+.dz-row label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12.5px;font-weight:600;color:rgba(244,239,230,.85);margin-bottom:6px}
+.dz-row label output{font-size:11px;color:var(--gold);font-weight:800;white-space:nowrap}
+.dz-row input[type=range]{width:100%;height:18px;accent-color:var(--gold);cursor:pointer;background:transparent}
+.dz-colors{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dz-color{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:600;color:rgba(244,239,230,.8)}
+.dz-color input[type=color]{
+  -webkit-appearance:none;appearance:none;width:36px;height:26px;border:1px solid var(--line);
+  border-radius:8px;background:none;padding:0;cursor:pointer;flex:none;
+}
+.dz-color input[type=color]::-webkit-color-swatch-wrapper{padding:2px}
+.dz-color input[type=color]::-webkit-color-swatch{border:none;border-radius:6px}
+.dz-fonts{display:flex;flex-wrap:wrap;gap:8px}
+.dz-fonts button{
+  border:1px solid var(--line);background:transparent;color:rgba(244,239,230,.75);border-radius:999px;
+  padding:8px 13px;font-size:11.5px;font-weight:700;transition:.25s;
+}
+.dz-fonts button.on{background:var(--gold);border-color:var(--gold);color:#0C0B09}
+.dz-foot{padding:14px 20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:9px}
+.dz-foot button{
+  height:44px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;transition:.3s;
+}
+#dzCopy{background:var(--gold);color:#0C0B09;border:none}
+#dzCopy:hover{filter:brightness(1.08)}
+#dzReset{background:transparent;border:1px solid var(--line);color:rgba(244,239,230,.7)}
+#dzReset:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:899px){
+  #dzToggle{left:12px;bottom:calc(84px + env(safe-area-inset-bottom));width:46px;height:46px}
+  #dzToggle svg{width:21px;height:21px}
+}
+</style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header" id="header">
+  <a class="logo" href="#top">
+    <img src="assets/img/logo.jpg" alt="Квартира №9">
+  </a>
+  <button class="h-burger" id="burger" aria-label="Меню разделов">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <nav class="h-nav" id="hnav">
+    <a href="#club" class="on">Наш клуб</a>
+    <a href="#route">Как добраться</a>
+    <a href="#prices">Цены</a>
+    <a href="#events">Мероприятия</a>
+    <a href="#menu">Меню</a>
+  </nav>
+  <div class="h-phone">
+    <b><a href="tel:+79881966054" data-goal="call">+7 988 196-60-54</a></b>
+    <span>Ботаническая, 14А · м. Владыкино</span>
+  </div>
+  <div class="h-msgr">
+    <a href="https://wa.me/+79933391939" target="_blank" rel="noopener" aria-label="WhatsApp" data-goal="whatsapp">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.2 8.8c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.3 0 .6.6 1 1.6 1.9 2.7 2.4.3.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5-.1 1-.9 1.7-1.9 1.7-3.2 0-6.5-3-7.2-6.2-.1-.7 0-1.4.4-2z" fill="currentColor"/></svg>
+    </a>
+    <a href="https://telegram.me/kvar09" target="_blank" rel="noopener" aria-label="Telegram" data-goal="telegram">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M21 4L3.5 10.8c-.8.3-.8 1.4.1 1.6l4.6 1.4 1.7 5.3c.3.8 1.2 1 1.8.4l2.5-2.4 4.7 3.5c.6.5 1.6.1 1.8-.7L22.9 5c.2-.9-.7-1.6-1.9-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <button class="btn btn-solid h-cta js-book" data-goal="book">
+    Забронировать
+    <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="assets/img/hall-wide.jpg" alt="Зал бильярдного клуба Квартира №9" fetchpriority="high"></div>
+  <div class="hero-inner">
+    <a class="hero-rating" href="https://yandex.ru/maps/org/169194441350" target="_blank" rel="noopener" data-goal="reviews">
+      <span class="stars">★★★★★</span>
+      <b>5.0</b>
+      <span>на Яндекс Картах · 327 отзывов</span>
+    </a>
+    <h1>Бильярдный клуб <span class="accent">«Квартира №9»</span></h1>
+    <p class="hero-sub">Семь столов американского пула в тёмном лофте с неоном и кирпичом. Бар, кухня, PS5 и VIP-комнаты — в трёх минутах от метро Владыкино.</p>
+    <div class="hero-cta">
+      <button class="btn btn-solid js-book" data-goal="book">
+        Забронировать стол
+        <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+    </div>
+  </div>
+  <div class="hero-features">
+    <div class="f">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.2"/><path d="M12 7.5V5M12 19v-2.5M7.5 12H5M19 12h-2.5" stroke="currentColor" stroke-width="1.2"/></svg>
+      <div>Пул от 500 ₽/час<small>столы Orange, Purple, Burgundy и другие</small></div>
+    </div>
+    <div class="f">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 9h11v7a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V9zM16 10h2a2.5 2.5 0 0 1 0 5h-2M7 5.5C7 4 8 3 9 3s2 1 2 2.5M12.5 5.5c0-1.5 1-2.5 2-2.5s2 1 2 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>Бар и кухня<small>пенное, коктейли, закуски и горячее</small></div>
+    </div>
+    <div class="f">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="12" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M8 21h8M9 9.5l-1.5 2h3L9 13.5M15 9.5l-1.5 2h3L15 13.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>VIP и PlayStation 5<small>комнаты под ключ от 1 200 ₽/час</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- АКЦИИ -->
+<div class="promo-strip reveal">
+  <div class="p"><span class="pct">−10%</span><span class="tx"><b>Первое посещение</b><span>скидка на аренду стола + бокал пенного в подарок</span></span></div>
+  <div class="p"><span class="pct">−25%</span><span class="tx"><b>В день рождения</b><span>скидка на бильярд при предъявлении документа</span></span></div>
+</div>
+
+<!-- НАШ КЛУБ -->
+<section class="section" id="club">
+  <div class="sec-head reveal">
+    <div>
+      <h2 class="sec-title">Выберите <span class="accent">идеальное</span><br>место для игры</h2>
+      <p class="sec-desc">Планируете вечер с друзьями, день рождения или турнир? Мы создали комфортную атмосферу — <b>и для новичков, и для опытных игроков</b>: продуманный свет над каждым столом, лаунж-зоны с диванами, бар и дружелюбный персонал, который всегда подскажет.</p>
+    </div>
+    <button class="btn btn-solid js-book reveal" data-goal="book">Забронировать стол
+      <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </div>
+  <div class="stats reveal">
+    <div class="stat">
+      <img src="assets/img/table-orange.jpg" alt="Стол для американского пула" loading="lazy">
+      <div class="tx"><div class="num">7 столов</div><div class="lbl">Американский пул</div><div class="sub2">Orange, Purple, Burgundy, Camel, Wine и другие</div></div>
+    </div>
+    <div class="stat">
+      <img src="assets/img/vip-room.jpg" alt="VIP-комната клуба" loading="lazy">
+      <div class="tx"><div class="num">2 VIP</div><div class="lbl">комнаты под ключ</div><div class="sub2">свой стол, диваны, ТВ и музыкальная станция</div></div>
+    </div>
+    <div class="stat">
+      <img src="assets/img/ps5.jpg" alt="PlayStation 5" loading="lazy">
+      <div class="tx"><div class="num">PS5</div><div class="lbl">и настольные игры</div><div class="sub2">игровая комната с 4K-телевизором</div></div>
+    </div>
+  </div>
+  <div class="plan-note reveal">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#E0A458" stroke-width="1.4"/><path d="M12 8v5M12 16h.01" stroke="#E0A458" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <div class="txt"><b>Никогда не играли?</b> Для новичков проводим мастер-классы, для опытных — турниры с призами. Спросите администратора о ближайших датах при брони.</div>
+    <a class="btn" href="https://telegram.me/kvar09" target="_blank" rel="noopener" data-goal="telegram">Анонсы в Telegram</a>
+  </div>
+</section>
+
+<!-- КАК ДОБРАТЬСЯ -->
+<section class="section" id="route" style="padding-top:0">
+  <div class="sec-head reveal">
+    <h2 class="sec-title">Как <span class="accent">добраться</span></h2>
+  </div>
+  <div class="route-grid reveal">
+    <div class="route-card">
+      <div class="ph"><img src="assets/img/table-red.jpg" alt="Клуб Квартира №9" loading="lazy"><span class="cap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
+        Адрес клуба</span></div>
+      <div class="body">
+        <div class="v">Ботаническая ул., 14А</div>
+        <div class="hnt">Москва · цокольный этаж, подъезд 1</div>
+      </div>
+    </div>
+    <div class="route-card">
+      <div class="ph"><img src="assets/img/table-pink.jpg" alt="Телефон клуба" loading="lazy"><span class="cap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        Телефон</span></div>
+      <div class="body">
+        <div class="v"><a href="tel:+79881966054" data-goal="call">+7 988 196-60-54</a></div>
+        <div class="hnt">ежедневно с 14:00</div>
+      </div>
+    </div>
+    <div class="route-card">
+      <div class="ph"><img src="assets/img/table-purple.jpg" alt="Telegram клуба" loading="lazy"><span class="cap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M21 4L3.5 10.8c-.8.3-.8 1.4.1 1.6l4.6 1.4 1.7 5.3c.3.8 1.2 1 1.8.4l2.5-2.4 4.7 3.5c.6.5 1.6.1 1.8-.7L22.9 5c.2-.9-.7-1.6-1.9-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        Telegram</span></div>
+      <div class="body">
+        <div class="v"><a href="https://telegram.me/kvar09" target="_blank" rel="noopener" data-goal="telegram">@kvar09</a></div>
+        <div class="hnt">анонсы турниров и событий</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;gap:clamp(28px,3.4vw,48px);margin-top:clamp(28px,4vw,48px);grid-template-columns:1fr" class="reveal">
+    <div style="text-align:center">
+      <p class="route-text">Ближайшее метро — <b>Владыкино</b>: выход в сторону Ботанической улицы, дойти пешком <b>за 3 минуты</b>. Рядом также МЦК Владыкино и м. Окружная. Работаем <b>с 14:00 ежедневно</b>: в будни до 02:00, в пятницу и субботу — до 05:00.</p>
+      <div class="help-card">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="6" y="2.5" width="12" height="19" rx="2.5" stroke="#E0A458" stroke-width="1.5"/><path d="M10 18.5h4" stroke="#E0A458" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div>
+          <div class="k">Не можете нас найти?</div>
+          <a href="tel:+79881966054" data-goal="call">+7 988 196-60-54</a>
+        </div>
+      </div>
+    </div>
+    <div class="map-wrap" style="border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;position:relative;background:#131009;aspect-ratio:16/8;min-height:320px">
+      <iframe src="https://yandex.ru/map-widget/v1/?oid=169194441350&z=16" loading="lazy" title="Квартира №9 на карте" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.9)"></iframe>
+      <a target="_blank" rel="noopener" href="https://yandex.ru/maps/?mode=routes&rtext=~55.846482,37.586994&rtt=pd" data-goal="route" style="position:absolute;top:14px;right:14px;z-index:2;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:rgba(12,11,9,.82);backdrop-filter:blur(10px);border:1px solid var(--line);color:var(--gold);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
+        Маршрут
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ЦЕНЫ -->
+<section class="section prices" id="prices">
+  <div class="sec-head reveal">
+    <div>
+      <h2 class="sec-title">Цены <span class="accent">в нашем клубе</span></h2>
+      <p class="sec-desc">Будние тарифы; вечером и в выходные цены выше — точную стоимость покажет <b>онлайн-бронь за минуту</b>.</p>
+    </div>
+  </div>
+  <div class="tabs reveal" id="priceTabs">
+    <button class="tab on" data-p="0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.2"/><path d="M12 7.5V5M12 19v-2.5M7.5 12H5M19 12h-2.5" stroke="currentColor" stroke-width="1.2"/></svg>
+      Пул</button>
+    <button class="tab" data-p="1">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 4l9 6.5M5 9.5V20h14V9.5M9.5 20v-5h5v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      VIP-комнаты</button>
+    <button class="tab" data-p="2">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="12" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M8 21h8M9 9.5l-1.5 2h3L9 13.5M15 9.5l-1.5 2h3L15 13.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      PS5 и игры</button>
+  </div>
+
+  <div class="price-panel on reveal" data-pane="0">
+    <div class="price-rows">
+      <div class="price-box">
+        <div class="nm">Orange · Purple · Burgundy · Violet</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">Аренда стола и инвентаря, от 1 часа. Вечером и в выходные тариф выше — точную стоимость покажет онлайн-бронь.</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт до 17:00</div><div class="p">500 ₽/ч</div></div>
+        </div>
+      </div>
+      <div class="price-box">
+        <div class="nm">Camel · Wine · Dark Grey</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">Столы с собственной посадочной зоной. Вечером и в выходные тариф выше — точную стоимость покажет онлайн-бронь.</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт</div><div class="p">950 ₽/ч</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="price-photo"><img src="assets/img/table-purple.jpg" alt="Стол Purple" loading="lazy"><span class="cap">Большой зал · 7 столов</span></div>
+  </div>
+
+  <div class="price-panel reveal" data-pane="1">
+    <div class="price-rows">
+      <div class="price-box">
+        <div class="nm">VIP-зал Fuchsia</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">Пул 9 футов, настольные игры, ТВ, музыкальная станция</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт</div><div class="p">1 200 ₽/ч</div></div>
+        </div>
+      </div>
+      <div class="price-box">
+        <div class="nm">VIP-комната под ключ</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">Пул 9 футов, PS5, настолки, ТВ и музыкальная станция</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт</div><div class="p">1 500 ₽/ч</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="price-photo"><img src="assets/img/vip-blue.jpg" alt="VIP-зал" loading="lazy"><span class="cap">VIP-комнаты · до 50 гостей</span></div>
+  </div>
+
+  <div class="price-panel reveal" data-pane="2">
+    <div class="price-rows">
+      <div class="price-box">
+        <div class="nm">Yellow Gaming Room · PS5</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">4K-телевизор, аудиосистема, диваны и игры</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт</div><div class="p">300 ₽/ч</div></div>
+        </div>
+      </div>
+      <div class="price-box">
+        <div class="nm">Настольные игры</div>
+        <div class="nt">«Колонизаторы» и другие — в VIP-комнатах и у стола</div>
+        <div class="vals">
+          <div class="val"><div class="p">бесплатно</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="price-photo"><img src="assets/img/ps5.jpg" alt="PlayStation 5" loading="lazy"><span class="cap">Игровая комната</span></div>
+  </div>
+
+  <div class="gallery reveal" id="gallery">
+    <img src="assets/img/table-orange.jpg" alt="Стол Orange" loading="lazy">
+    <img src="assets/img/table-red.jpg" alt="Стол в большом зале" loading="lazy">
+    <img src="assets/img/table-grey.jpg" alt="Стол Camel" loading="lazy">
+    <img src="assets/img/vip-room.jpg" alt="VIP-комната" loading="lazy">
+    <img src="assets/img/table-pink.jpg" alt="VIP-зал Fuchsia" loading="lazy">
+    <img src="assets/img/table-burgundy.jpg" alt="Стол Burgundy" loading="lazy">
+  </div>
+  <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px">
+    <div class="gal-nav">
+      <button id="galPrev" aria-label="Назад"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="galNext" aria-label="Вперёд"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <button class="btn btn-solid js-book" data-goal="book">Забронировать стол
+      <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+  </div>
+</section>
+
+<!-- МЕРОПРИЯТИЯ -->
+<section class="section" id="events">
+  <div class="sec-head reveal">
+    <div>
+      <h2 class="sec-title">Проведение <span class="accent">мероприятий</span><br>и корпоративов</h2>
+    </div>
+    <div class="tabs reveal" id="eventTabs" style="margin-top:0;min-width:min(480px,100%)">
+      <button class="tab on" data-e="0">VIP-комната</button>
+      <button class="tab" data-e="1">Весь зал</button>
+    </div>
+  </div>
+  <div class="event-grid reveal">
+    <div class="event-collage" id="eventCollage">
+      <img class="tall" src="assets/img/vip-room.jpg" alt="VIP-комната для мероприятий" loading="lazy">
+      <img src="assets/img/table-pink.jpg" alt="Зал Fuchsia" loading="lazy">
+      <img src="assets/img/vip-blue.jpg" alt="Атмосфера клуба" loading="lazy">
+    </div>
+    <div id="eventText">
+      <p class="sec-desc" style="margin-top:0">Отмечайте день рождения или собирайте компанию в отдельной комнате: свой стол, диваны, ТВ, музыкальная станция и PS5. Еду и напитки приносим из нашего бара и кухни — подадим прямо к столу.</p>
+      <div class="fits">
+        <span><b>подходит:</b></span>
+        <span>день рождения</span><span>корпоратив</span><span>турнир</span><span>встреча компании</span>
+      </div>
+      <p class="sec-desc" style="font-size:13.5px;margin-top:0">Бронируете весь зал или VIP под своё событие? Стоимость брони ×2, зато можно со своей едой и напитками.</p>
+      <button class="btn btn-solid js-book" data-goal="book" style="margin-top:8px">Обсудить мероприятие
+        <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- МЕНЮ -->
+<section class="section" id="menu" style="padding-top:0">
+  <div class="menu-grid">
+    <div class="reveal">
+      <h2 class="sec-title">Бар и <span class="accent">кухня</span></h2>
+      <p class="sec-desc">Вход со своей едой и напитками не предусмотрен — но это и не нужно: у нас <b>полноценная кухня и бар</b>. Пенное, коктейли, чай и кофе, закуски, пицца и горячее принесём прямо к вашему столу, пока вы играете.</p>
+      <div class="menu-hits">
+        <div class="hit"><span>Пицца «Маргарита»</span><i></i><b>690 ₽</b></div>
+        <div class="hit"><span>Хот-дог</span><i></i><b>490 ₽</b></div>
+        <div class="hit"><span>Пенное светлое 0,5 л</span><i></i><b>590 ₽</b></div>
+        <div class="hit"><span>Чай с персиком</span><i></i><b>450 ₽</b></div>
+      </div>
+      <div class="menu-btns">
+        <button class="btn btn-solid js-menu" data-menu="food">Меню кухни
+          <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <button class="btn js-menu" data-menu="bar">Меню бара
+          <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+      </div>
+    </div>
+    <div class="menu-marquee reveal">
+      <div class="menu-track">
+        <img class="js-menu" data-menu="food" src="assets/img/food-menu.jpg" alt="Меню кухни" loading="lazy">
+        <img class="js-menu" data-menu="bar" src="assets/img/bar-menu.jpg" alt="Меню бара" loading="lazy">
+        <img class="js-menu" data-menu="food" src="assets/img/food-menu.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img class="js-menu" data-menu="bar" src="assets/img/bar-menu.jpg" alt="" loading="lazy" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="f-logo">
+        <img src="assets/img/logo.jpg" alt="Квартира №9">
+        <div class="nm">Квартира №9<small>уютные бильярды Москвы</small></div>
+      </div>
+      <div class="f-legal">
+        <div class="f-legal-links">
+          <a href="#" class="js-legal" data-doc="privacy">Политика конфиденциальности</a>
+          <a href="#" class="js-legal" data-doc="terms">Условия использования</a>
+          <a href="#" class="js-legal" data-doc="rules">Правила посещения, бронирования и использования инфраструктуры</a>
+        </div>
+        ИП Кеда Данил Александрович · ОГРНИП 320508100432434 · ИНН 502498198010<br>
+        © 2026 Квартира №9 · м. Владыкино, Ботаническая 14А
+      </div>
+    </div>
+    <div class="f-col">
+      <div class="h">Контакты</div>
+      <a href="tel:+79881966054" data-goal="call">+7 988 196-60-54</a>
+      <a href="https://wa.me/+79933391939" target="_blank" rel="noopener" data-goal="whatsapp">WhatsApp</a>
+      <a href="https://telegram.me/kvar09" target="_blank" rel="noopener" data-goal="telegram">Telegram</a>
+      <a href="https://vk.ru/kvartir9" target="_blank" rel="noopener" data-goal="vk">ВКонтакте</a>
+    </div>
+    <div class="f-col">
+      <div class="h">Клуб</div>
+      <a href="#prices">Цены</a>
+      <a href="#events">Мероприятия</a>
+      <a href="#menu">Меню</a>
+      <a href="https://yandex.ru/maps/org/169194441350" target="_blank" rel="noopener" data-goal="reviews">Отзывы на Яндекс Картах</a>
+    </div>
+  </div>
+</footer>
+
+<!-- КНОПКА «НАВЕРХ» -->
+<button class="to-top" id="toTop" aria-label="Наверх">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- МОБИЛЬНАЯ ПАНЕЛЬ -->
+<div class="mobile-bar">
+  <a class="ic" href="tel:+79881966054" aria-label="Позвонить" data-goal="call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  </a>
+  <button class="btn btn-solid js-book" data-goal="book">Забронировать стол</button>
+  <a class="ic" href="https://wa.me/+79933391939" aria-label="Написать в WhatsApp" data-goal="whatsapp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.2 8.8c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.3 0 .6.6 1 1.6 1.9 2.7 2.4.3.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5-.1 1-.9 1.7-1.9 1.7-3.2 0-6.5-3-7.2-6.2-.1-.7 0-1.4.4-2z" fill="currentColor"/></svg>
+  </a>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО МЕНЮ РАЗДЕЛОВ -->
+<div class="modal" id="navModal" role="dialog" aria-modal="true">
+  <div class="modal-card nav-modal-card">
+    <button class="modal-close" data-close aria-label="Закрыть">✕</button>
+    <div class="m-title">Квартира №9</div>
+    <nav>
+      <a class="nav-link" href="#club" data-nav>Наш клуб <small>залы и столы</small></a>
+      <a class="nav-link" href="#route" data-nav>Как добраться <small>адрес и метро</small></a>
+      <a class="nav-link" href="#prices" data-nav>Цены <small>пул · VIP · PS5</small></a>
+      <a class="nav-link" href="#events" data-nav>Мероприятия <small>дни рождения</small></a>
+      <a class="nav-link" href="#menu" data-nav>Меню <small>бар и кухня</small></a>
+    </nav>
+    <div class="nav-foot">
+      <a href="tel:+79881966054" data-goal="call">Позвонить</a>
+      <a href="https://wa.me/+79933391939" target="_blank" rel="noopener" data-goal="whatsapp">WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО БРОНИРОВАНИЯ -->
+<div class="modal" id="bookModal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Закрыть">✕</button>
+    <div class="m-title">Забронировать стол · онлайн за минуту<br>
+      <a href="https://n1295541.yclients.com" target="_blank" rel="noopener" style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--muted);text-decoration:underline">открыть форму в новой вкладке</a>
+    </div>
+    <iframe id="bookFrame" title="Онлайн-бронирование Квартира №9" loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО МЕНЮ -->
+<div class="modal" id="menuModal" role="dialog" aria-modal="true">
+  <div class="modal-card menu-modal-card">
+    <button class="modal-close" data-close aria-label="Закрыть">✕</button>
+    <div class="m-title" id="menuModalTitle">Меню</div>
+    <div class="lightbox-wrap"><img class="lightbox-img" id="menuImg" src="" alt="Меню"></div>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО ДОКУМЕНТОВ -->
+<div class="modal" id="legalModal" role="dialog" aria-modal="true">
+  <div class="modal-card menu-modal-card" style="max-width:720px">
+    <button class="modal-close" data-close aria-label="Закрыть">✕</button>
+    <div class="m-title" id="legalTitle">Документ</div>
+    <div class="lightbox-wrap legal-body" id="legalBody" style="padding:8px 26px 30px;color:var(--muted);font-size:14px;line-height:1.7"></div>
+  </div>
+</div>
+
+<script>
+/* ===== Бронирование: модалка с YCLIENTS ===== */
+(function(){
+  const modal=document.getElementById('bookModal');
+  const frame=document.getElementById('bookFrame');
+  const SRC='https://n1295541.yclients.com';
+  function open(e){
+    if(e)e.preventDefault();
+    if(!frame.src)frame.src=SRC;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    modal.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('.js-book').forEach(b=>b.addEventListener('click',open));
+  modal.querySelector('[data-close]').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+
+/* ===== Меню разделов + кнопка «наверх» ===== */
+(function(){
+  const modal=document.getElementById('navModal');
+  const burger=document.getElementById('burger');
+  function close(){modal.classList.remove('open');document.body.style.overflow='';}
+  burger.addEventListener('click',()=>{modal.classList.add('open');document.body.style.overflow='hidden';});
+  modal.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',close));
+  modal.querySelectorAll('[data-nav]').forEach(a=>a.addEventListener('click',close));
+  modal.addEventListener('click',e=>{if(e.target===modal)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+  const toTop=document.getElementById('toTop');
+  toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  let tick=false;
+  window.addEventListener('scroll',()=>{
+    if(tick)return;tick=true;
+    requestAnimationFrame(()=>{
+      toTop.classList.toggle('show',window.scrollY>600);
+      tick=false;
+    });
+  },{passive:true});
+})();
+
+/* ===== Меню: лайтбокс ===== */
+(function(){
+  const modal=document.getElementById('menuModal');
+  const img=document.getElementById('menuImg');
+  const title=document.getElementById('menuModalTitle');
+  const MAP={food:['assets/img/food-menu.jpg','Меню кухни · закуски, горячее, пицца'],bar:['assets/img/bar-menu.jpg','Меню бара · пиво, коктейли, чай и кофе']};
+  document.querySelectorAll('.js-menu').forEach(b=>b.addEventListener('click',()=>{
+    const m=MAP[b.dataset.menu];if(!m)return;
+    img.src=m[0];title.textContent=m[1];
+    modal.classList.add('open');document.body.style.overflow='hidden';
+  }));
+  function close(){modal.classList.remove('open');document.body.style.overflow='';}
+  modal.querySelector('[data-close]').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+
+/* ===== Вкладки цен ===== */
+(function(){
+  const tabs=[...document.querySelectorAll('#priceTabs .tab')];
+  const panes=[...document.querySelectorAll('.price-panel')];
+  tabs.forEach(t=>t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('on'));t.classList.add('on');
+    panes.forEach(p=>p.classList.toggle('on',p.dataset.pane===t.dataset.p));
+  }));
+})();
+
+/* ===== Вкладки мероприятий ===== */
+(function(){
+  const tabs=[...document.querySelectorAll('#eventTabs .tab')];
+  const collage=document.getElementById('eventCollage');
+  const text=document.getElementById('eventText');
+  const SETS=[
+    {
+      imgs:['assets/img/vip-room.jpg','assets/img/table-pink.jpg','assets/img/vip-blue.jpg'],
+      html:'<p class="sec-desc" style="margin-top:0">Отмечайте день рождения или собирайте компанию в отдельной комнате: свой стол, диваны, ТВ, музыкальная станция и PS5. Еду и напитки приносим из нашего бара и кухни — подадим прямо к столу.</p>'
+    },
+    {
+      imgs:['assets/img/hall-wide.jpg','assets/img/table-red.jpg','assets/img/table-orange.jpg'],
+      html:'<p class="sec-desc" style="margin-top:0">Хотите собрать большую компанию? Бронируйте весь зал целиком: семь столов, лаунж-зоны и бар в вашем распоряжении. Стоимость брони ×2, но можно со своей едой и напитками.</p>'
+    }
+  ];
+  tabs.forEach(t=>t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('on'));t.classList.add('on');
+    const s=SETS[+t.dataset.e];
+    [...collage.querySelectorAll('img')].forEach((im,i)=>im.src=s.imgs[i]);
+    text.querySelector('p.sec-desc').outerHTML=s.html;
+  }));
+})();
+
+/* ===== Галерея: прокрутка ===== */
+(function(){
+  const g=document.getElementById('gallery');
+  const step=()=>g.clientWidth*0.7;
+  document.getElementById('galNext').addEventListener('click',()=>g.scrollBy({left:step(),behavior:'smooth'}));
+  document.getElementById('galPrev').addEventListener('click',()=>g.scrollBy({left:-step(),behavior:'smooth'}));
+})();
+
+/* ===== Появление при скролле ===== */
+(function(){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+  }),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  /* страховка: если наблюдатель не сработал, показываем контент */
+  setTimeout(()=>{
+    document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.top<window.innerHeight*1.25)el.classList.add('in');
+    });
+  },1200);
+  window.addEventListener('scroll',()=>{
+    document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.top<window.innerHeight*1.05)el.classList.add('in');
+    });
+  },{passive:true});
+})();
+
+/* ===== Активный пункт меню ===== */
+(function(){
+  const links=[...document.querySelectorAll('#hnav a')];
+  const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));
+  }),{rootMargin:'-35% 0px -55% 0px'});
+  secs.forEach(s=>io.observe(s));
+})();
+
+/* ===== Документы ===== */
+(function(){
+  const DOCS={
+    privacy:{
+      t:'Политика конфиденциальности',
+      h:'<p><b style="color:var(--text)">1. Общие положения.</b> Настоящая политика обработки персональных данных составлена в соответствии с Федеральным законом № 152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных ИП Кеда Данил Александрович (ОГРНИП 320508100432434, ИНН 502498198010), далее — «Клуб».</p>'+
+      '<p><b style="color:var(--text)">2. Состав данных.</b> Клуб может обрабатывать: имя, номер телефона, данные о записях и посещениях. Данные поступают при бронировании стола по телефону, в мессенджерах, через форму онлайн-записи и при посещении Клуба.</p>'+
+      '<p><b style="color:var(--text)">3. Цели обработки.</b> Данные используются исключительно для оформления и подтверждения бронирования, информирования об изменениях записи, проведения акций и оценки качества обслуживания.</p>'+
+      '<p><b style="color:var(--text)">4. Передача третьим лицам.</b> Данные не передаются третьим лицам, за исключением сервиса онлайн-записи (YCLIENTS), который обрабатывает их на основании своей политики конфиденциальности, и случаев, предусмотренных законодательством РФ.</p>'+
+      '<p><b style="color:var(--text)">5. Cookies и аналитика.</b> Сайт использует файлы cookie и сервис веб-аналитики Яндекс Метрика для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с использованием cookie.</p>'+
+      '<p><b style="color:var(--text)">6. Права субъекта.</b> Вы вправе запросить уточнение, блокирование или удаление своих персональных данных, направив обращение по телефону +7 988 196-60-54.</p>'
+    },
+    terms:{
+      t:'Условия использования сайта',
+      h:'<p><b style="color:var(--text)">1.</b> Информация на сайте (цены, расписание, акции, состав услуг) носит справочный характер и не является публичной офертой. Актуальные условия уточняйте по телефону +7 988 196-60-54 или при бронировании.</p>'+
+      '<p><b style="color:var(--text)">2.</b> Цены, указанные на сайте, актуальны на момент публикации. Точная стоимость услуг определяется при оформлении бронирования и может отличаться в зависимости от дня недели и времени суток.</p>'+
+      '<p><b style="color:var(--text)">3.</b> Онлайн-бронирование осуществляется через сервис YCLIENTS. Оформляя запись, вы подтверждаете согласие с правилами посещения Клуба.</p>'+
+      '<p><b style="color:var(--text)">4.</b> Все материалы сайта (фотографии, тексты, логотип) являются собственностью Клуба. Использование без письменного согласия правообладателя запрещено.</p>'+
+      '<p><b style="color:var(--text)">5.</b> Клуб вправе изменять условия работы, цены и состав услуг без предварительного уведомления.</p>'
+    },
+    rules:{
+      t:'Правила посещения, бронирования и использования инфраструктуры',
+      h:'<p><b style="color:var(--text)">1. Бронирование.</b> Стол бронируется от 1 часа. Бронирования от 2 часов регистрируются по предварительной оплате 50%. Услуга предоставляется лицу, на которое оформлено бронирование; при получении услуги необходимо назвать номер телефона, с которого была совершена запись.</p>'+
+      '<p><b style="color:var(--text)">2. Опоздания.</b> Если вы задерживаетесь — предупредите администратора по телефону. Без предупреждения бронь до 2 часов аннулируется при неявке через 20 минут.</p>'+
+      '<p><b style="color:var(--text)">3. Еда и напитки.</b> Вход со своей едой и напитками не предусмотрен — заказы принимаются из меню бара и кухни Клуба. Исключение: бронь игровых столов во всём зале или в VIP-комнате под своё мероприятие — в этом случае стоимость брони увеличивается в 2 раза, свой кейтеринг допускается.</p>'+
+      '<p><b style="color:var(--text)">4. Оплата.</b> Принимаются банковские карты, наличные и переводы. Часы работы: ежедневно с 14:00, в будни до 02:00, в пятницу и субботу — до 05:00.</p>'+
+      '<p><b style="color:var(--text)">5. Поведение и имущество.</b> Гости обязаны бережно относиться к инвраструктуре Клуба: столам, киям, мебели и оборудованию. В случае порчи имущества по вине гость возмещает ущерб по фактической стоимости. Администрация вправе отказать в обслуживании лицам в состоянии сильного алкогольного опьянения и нарушающим порядок.</p>'+
+      '<p><b style="color:var(--text)">6.</b> Находясь в Клубе, гость соглашается с настоящими правилами. Вопросы решаются с администратором на месте или по телефону +7 988 196-60-54.</p>'
+    }
+  };
+  const modal=document.getElementById('legalModal');
+  const title=document.getElementById('legalTitle');
+  const body=document.getElementById('legalBody');
+  document.querySelectorAll('.js-legal').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    const d=DOCS[a.dataset.doc];if(!d)return;
+    title.textContent=d.t;body.innerHTML=d.h;
+    modal.classList.add('open');document.body.style.overflow='hidden';
+  }));
+  function close(){modal.classList.remove('open');document.body.style.overflow='';}
+  modal.querySelector('[data-close]').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+
+/* ===== Цели для аналитики ===== */
+document.querySelectorAll('[data-goal]').forEach(el=>{
+  el.addEventListener('click',()=>{
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'club_goal',goal:el.dataset.goal});
+    if(typeof ym==='function'){try{ym(0,'reachGoal',el.dataset.goal);}catch(e){}}
+  });
+});
+</script>
+
+<!-- ===== Панель настроек дизайна (видна только по ?edit=1) ===== -->
+<div id="dzPanel" hidden>
+  <button id="dzToggle" aria-label="Настройки дизайна" title="Настройки дизайна">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+  </button>
+  <div id="dzCard">
+    <div class="dz-head"><b>Настройки дизайна</b><button id="dzClose" aria-label="Закрыть">✕</button></div>
+    <div class="dz-note">Эту панель видите только вы — она открывается по ссылке с <b>?edit=1</b>. Крутите ползунки: сайт меняется сразу, настройки сохраняются в вашем браузере. Когда результат понравится — нажмите «Скопировать настройки» и пришлите текст разработчику, он закрепит их в коде насовсем.</div>
+    <div class="dz-body" id="dzBody"></div>
+    <div class="dz-foot">
+      <button id="dzCopy">Скопировать настройки</button>
+      <button id="dzReset">Сбросить всё</button>
+    </div>
+  </div>
+</div>
+<script>
+/* ===== Панель настроек дизайна ===== */
+(function(){
+  if(!/[?#&]edit/.test(location.href))return;
+  const root=document.documentElement;
+  const KEY='kv9_design';
+  const DEF={
+    '--gold':'#E0A458','--bg':'#0C0B09','--surface':'#1A1611','--card':'#221C15','--text':'#F4EFE6',
+    '--disp':'Unbounded',
+    '--s-h1':'1','--s-hero-sub':'1','--s-title':'1','--s-body':'1','--s-desc':'1',
+    '--s-pad':'1','--s-secpad':'1','--radius':'26px',
+    '--s-btnh':'1','--s-btnfs':'1','--btn-radius':'56px',
+    '--s-stath':'1','--s-galh':'1','--s-menuh':'1','--s-menuw':'1','--marquee':'26s'
+  };
+  const FONTS={
+    'Unbounded':"'Unbounded','Manrope',sans-serif",
+    'Playfair Display':"'Playfair Display','Manrope',serif",
+    'Montserrat':"'Montserrat','Manrope',sans-serif",
+    'Manrope':"'Manrope',sans-serif"
+  };
+  const GROUPS=[
+    {t:'Цвета',colors:[
+      ['--gold','Акцент (золотой)'],
+      ['--bg','Фон сайта'],
+      ['--surface','Фон секций'],
+      ['--card','Фон карточек'],
+      ['--text','Цвет текста']
+    ]},
+    {t:'Шрифт заголовков',font:true},
+    {t:'Размеры текста',rows:[
+      ['--s-h1','Заголовок первого экрана',.7,1.35,'x'],
+      ['--s-hero-sub','Подзаголовок первого экрана',.8,1.3,'x'],
+      ['--s-title','Заголовки секций',.7,1.4,'x'],
+      ['--s-body','Основной текст',.85,1.25,'x'],
+      ['--s-desc','Описания под заголовками',.8,1.35,'x']
+    ]},
+    {t:'Отступы и формы',rows:[
+      ['--s-pad','Боковые отступы страницы',.5,2,'x'],
+      ['--s-secpad','Вертикальные отступы секций',.5,1.6,'x'],
+      ['--radius','Скругление карточек',0,40,'px'],
+      ['--btn-radius','Скругление кнопок',0,56,'px']
+    ]},
+    {t:'Кнопки',rows:[
+      ['--s-btnh','Высота кнопок',.75,1.35,'x'],
+      ['--s-btnfs','Текст в кнопках',.8,1.3,'x']
+    ]},
+    {t:'Блоки и фото',rows:[
+      ['--s-stath','Высота карточек «Наш клуб»',.7,1.6,'x'],
+      ['--s-galh','Высота фото в галерее',.6,1.8,'x'],
+      ['--s-menuh','Высота фото меню',.7,1.5,'x'],
+      ['--s-menuw','Ширина фото меню',.7,1.5,'x'],
+      ['--marquee','Прокрутка меню, сек на цикл',8,60,'s']
+    ]}
+  ];
+  let store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+
+  function hexRgb(h){h=h.replace('#','');return[0,2,4].map(i=>parseInt(h.substr(i,2),16));}
+  function mix(h,t,p){const a=hexRgb(h),b=hexRgb(t);return'#'+a.map((c,i)=>Math.round(c+(b[i]-c)*p).toString(16).padStart(2,'0')).join('');}
+  function derive(k,v){
+    if(k==='--gold'){
+      root.style.setProperty('--line','rgba('+hexRgb(v).join(',')+',.14)');
+      root.style.setProperty('--gold-deep',mix(v,'#000000',.18));
+      root.style.setProperty('--gold-hover',mix(v,'#FFFFFF',.12));
+    }
+    if(k==='--text'){root.style.setProperty('--muted','rgba('+hexRgb(v).join(',')+',.56)');}
+  }
+  function apply(k,v){
+    if(k==='--disp')root.style.setProperty(k,FONTS[v]||FONTS.Unbounded);
+    else{root.style.setProperty(k,v);derive(k,v);}
+    store[k]=v;
+    localStorage.setItem(KEY,JSON.stringify(store));
+  }
+  function valOf(k){return store[k]||DEF[k];}
+
+  /* восстановить сохранённые настройки */
+  Object.keys(store).forEach(k=>{
+    if(k==='--disp')root.style.setProperty(k,FONTS[store[k]]||FONTS.Unbounded);
+    else{root.style.setProperty(k,store[k]);derive(k,store[k]);}
+  });
+
+  /* --- построить элементы панели --- */
+  const bodyEl=document.getElementById('dzBody');
+  function render(){
+    bodyEl.innerHTML='';
+    GROUPS.forEach(g=>{
+      const gd=document.createElement('div');gd.className='dz-group';
+      const t=document.createElement('span');t.textContent=g.t;gd.appendChild(t);
+      if(g.colors){
+        const grid=document.createElement('div');grid.className='dz-colors';
+        g.colors.forEach(([k,label])=>{
+          const w=document.createElement('label');w.className='dz-color';
+          const inp=document.createElement('input');inp.type='color';inp.value=valOf(k);
+          inp.addEventListener('input',()=>apply(k,inp.value));
+          const s=document.createElement('span');s.textContent=label;
+          w.appendChild(inp);w.appendChild(s);grid.appendChild(w);
+        });
+        gd.appendChild(grid);
+      }
+      if(g.font){
+        const wrap=document.createElement('div');wrap.className='dz-fonts';
+        Object.keys(FONTS).forEach(name=>{
+          const b=document.createElement('button');b.textContent=name;
+          if(valOf('--disp')===name)b.classList.add('on');
+          b.addEventListener('click',()=>{
+            apply('--disp',name);
+            wrap.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+          });
+          wrap.appendChild(b);
+        });
+        gd.appendChild(wrap);
+      }
+      (g.rows||[]).forEach(([k,label,min,max,unit])=>{
+        const row=document.createElement('div');row.className='dz-row';
+        const lab=document.createElement('label');
+        const txt=document.createElement('span');txt.textContent=label;
+        const out=document.createElement('output');
+        const inp=document.createElement('input');inp.type='range';inp.min=min;inp.max=max;
+        const cur=parseFloat(valOf(k));
+        if(unit==='x'){inp.step=0.05;out.textContent='×'+cur.toFixed(2);}
+        else{inp.step=1;out.textContent=Math.round(cur)+(unit==='px'?' px':' с');}
+        inp.value=cur;
+        inp.addEventListener('input',()=>{
+          if(unit==='x'){apply(k,(+inp.value).toString());out.textContent='×'+(+inp.value).toFixed(2);}
+          else{apply(k,inp.value+unit);out.textContent=inp.value+(unit==='px'?' px':' с');}
+        });
+        lab.appendChild(txt);lab.appendChild(out);
+        row.appendChild(lab);row.appendChild(inp);
+        gd.appendChild(row);
+      });
+      bodyEl.appendChild(gd);
+    });
+  }
+  render();
+
+  /* --- показать / скрыть --- */
+  const panel=document.getElementById('dzPanel');panel.hidden=false;
+  const card=document.getElementById('dzCard');
+  document.getElementById('dzToggle').addEventListener('click',()=>card.classList.toggle('open'));
+  document.getElementById('dzClose').addEventListener('click',()=>card.classList.remove('open'));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')card.classList.remove('open');});
+
+  /* --- экспорт --- */
+  function exportTxt(){
+    const out=[];
+    Object.keys(store).forEach(k=>{
+      if(store[k]===DEF[k])return;
+      if(k==='--disp'){out.push([k,FONTS[store[k]]||FONTS.Unbounded]);return;}
+      out.push([k,store[k]]);
+      if(k==='--gold'){
+        out.push(['--line','rgba('+hexRgb(store[k]).join(',')+',.14)']);
+        out.push(['--gold-deep',mix(store[k],'#000000',.18)]);
+        out.push(['--gold-hover',mix(store[k],'#FFFFFF',.12)]);
+      }
+      if(k==='--text')out.push(['--muted','rgba('+hexRgb(store[k]).join(',')+',.56)']);
+    });
+    if(!out.length)return 'Настройки пока не менялись — всё по умолчанию.';
+    return ':root{\n'+out.map(p=>'  '+p[0]+': '+p[1]+';').join('\n')+'\n}';
+  }
+  const copyBtn=document.getElementById('dzCopy');
+  copyBtn.addEventListener('click',()=>{
+    const txt=exportTxt();
+    const done=()=>{copyBtn.textContent='Скопировано ✓ пришлите мне';setTimeout(()=>{copyBtn.textContent='Скопировать настройки';},2400);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done).catch(()=>fb());
+    }else fb();
+    function fb(){
+      const ta=document.createElement('textarea');ta.value=txt;ta.style.cssText='position:fixed;opacity:0';
+      document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');done();}catch(e){prompt('Скопируйте текст настроек:',txt);}
+      ta.remove();
+    }
+  });
+
+  /* --- сброс --- */
+  document.getElementById('dzReset').addEventListener('click',()=>{
+    localStorage.removeItem(KEY);
+    Object.keys(store).forEach(k=>root.style.removeProperty(k));
+    ['--line','--gold-deep','--gold-hover','--muted'].forEach(k=>root.style.removeProperty(k));
+    store={};
+    render();
+  });
+})();
+</script>
+</body>
+</html>
