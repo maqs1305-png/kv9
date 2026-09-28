@@ -256,8 +256,44 @@ button{font-family:inherit;cursor:pointer}
 .help-card .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .help-card a{font-family:var(--disp);font-weight:700;font-size:18px;color:var(--gold)}
 
-/* ---------- Галерея ---------- */
+/* ---------- Цены ---------- */
 .prices{background:var(--surface)}
+.tabs{
+  display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:10px;margin-top:clamp(26px,4vw,40px);
+}
+@media(max-width:640px){.tabs{grid-auto-flow:row;grid-auto-columns:auto}}
+.tab{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  border:1px solid var(--line);border-radius:16px;padding:17px 14px;background:transparent;color:var(--muted);
+  font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:all .3s;
+}
+.tab svg{flex:none}
+.tab.on{background:var(--gold);color:#0C0B09;border-color:var(--gold)}
+.price-panel{display:none;margin-top:clamp(28px,4vw,44px);grid-template-columns:1fr;gap:clamp(24px,3vw,44px)}
+.price-panel.on{display:grid}
+@media(min-width:900px){.price-panel{grid-template-columns:1.05fr .95fr;align-items:start}}
+.price-rows{display:flex;flex-direction:column;gap:12px}
+.price-box{
+  border:1px solid var(--line);border-radius:20px;padding:22px 24px;background:var(--card);
+  display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:center;
+}
+.price-box .nm{font-weight:800;font-size:17px;padding-right:10px}
+.price-box .nt{grid-column:1/2;font-size:14px;color:var(--muted);margin-top:2px}
+.price-box .vals{display:flex;gap:26px;grid-column:1/-1;flex-wrap:wrap;margin-top:14px;border-top:1px dashed rgba(224,164,88,.22);padding-top:14px}
+.price-box .val .t{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.price-box .val .p{font-family:var(--disp);font-weight:700;font-size:clamp(21px,2.2vw,25px);color:var(--gold);margin-top:2px}
+.price-box .go{grid-row:1;grid-column:2;align-self:start}
+@media(max-width:640px){
+  .price-box{grid-template-columns:1fr}
+  .price-box .go{grid-row:auto;grid-column:1;justify-self:start;margin-top:6px}
+  .price-box .nt{grid-column:1}
+}
+.price-photo{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:4/3.1}
+.price-photo img{width:100%;height:100%;object-fit:cover}
+.price-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,9,.55),transparent 50%)}
+.price-photo .cap{position:absolute;left:18px;bottom:16px;z-index:2;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+/* галерея */
 .gallery{display:flex;gap:12px;margin-top:clamp(30px,4vw,44px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none}
 .gallery::-webkit-scrollbar{display:none}
 .gallery img{
@@ -288,8 +324,26 @@ button{font-family:inherit;cursor:pointer}
 .fits span b{color:var(--gold)}
 
 /* ---------- Меню ---------- */
-.menu-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(22px,3vw,34px)}
-.menu-btns .btn{height:clamp(52px,5vw,60px)}
+.menu-grid{display:grid;gap:clamp(24px,3vw,44px);align-items:center}
+@media(min-width:900px){.menu-grid{grid-template-columns:1fr 1fr}}
+.menu-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.menu-hits{margin-top:28px;display:flex;flex-direction:column;gap:13px;max-width:480px}
+.menu-hits .hit{display:flex;align-items:baseline;gap:12px;font-size:15px;font-weight:600;color:var(--text)}
+.menu-hits .hit i{flex:1;border-bottom:1px dashed rgba(224,164,88,.28);transform:translateY(-4px);min-width:24px}
+.menu-hits .hit b{font-family:var(--disp);font-weight:700;color:var(--gold);font-size:16px;white-space:nowrap}
+.menu-marquee{overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:var(--card);position:relative}
+.menu-track{display:flex;gap:12px;width:max-content;padding:12px;animation:menuScroll var(--marquee) linear infinite}
+.menu-marquee:hover .menu-track{animation-play-state:paused}
+.menu-track img{
+  width:var(--menu-img-w);height:var(--menu-img-h);object-fit:cover;flex:none;
+  border-radius:14px;border:1px solid var(--line);cursor:pointer;opacity:.94;transition:opacity .3s;
+}
+.menu-track img:hover{opacity:1}
+@keyframes menuScroll{to{transform:translateX(calc(-50% - 6px))}}
+@media(max-width:899px){
+  .menu-marquee{margin-top:10px}
+  .menu-btns .btn{flex:1;justify-content:center}
+}
 
 /* ---------- Футер ---------- */
 footer{border-top:1px solid var(--line);background:var(--surface);padding:clamp(48px,7vw,80px) var(--pad) 110px}
@@ -391,7 +445,7 @@ footer{border-top:1px solid var(--line);background:var(--surface);padding:clamp(
   --btn-h:calc(56px * var(--s-btnh,1));
   --btn-fs:calc(12.5px * var(--s-btnfs,1));
   --btn-radius:56px;
-  --gal-h:calc(clamp(180px,24vw,300px) * var(--s-galh,1));
+  --gal-h:calc(clamp(140px,20vw,220px) * var(--s-galh,1));
   --menu-img-h:calc(clamp(330px,38vw,470px) * var(--s-menuh,1));
   --menu-img-w:calc(clamp(250px,24vw,320px) * var(--s-menuw,1));
   --stat-h:calc(300px * var(--s-stath,1));
@@ -498,46 +552,6 @@ body.dz-editing .menu-track{animation-play-state:paused}
   #dzHint{font-size:10.5px;max-width:94vw;white-space:normal;text-align:center;line-height:1.4}
 }
 </style>
-<style>
-/* === ФИНАЛЬНЫЕ ПРАВКИ: ровная сетка, якоря, мобильная адаптация === */
-
-/* 1. Якоря не заезжают под фиксированную шапку */
-section[id]{scroll-margin-top:96px}
-@media(max-width:560px){section[id]{scroll-margin-top:84px}}
-
-/* 2. Галерея */
-.gallery-actions{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px}
-
-/* 3. Меню — только кнопки */
-#menu .sec-head{margin-bottom:clamp(22px,3vw,34px)}
-
-/* 4. Секция «Как добраться»: без карты, текст по центру */
-#route .route-text{max-width:70ch}
-
-/* 5. Убираем зазоры между секциями */
-#route.section{padding-bottom:clamp(40px,6vw,80px)}
-
-/* 6. Мобильные правки */
-@media(max-width:899px){
-  .stats,.route-grid,.event-grid{grid-template-columns:1fr}
-  .stat{min-height:260px}
-  .event-collage .tall{min-height:280px}
-  .sec-head{gap:16px}
-  .sec-head .btn{width:100%;justify-content:center}
-}
-@media(max-width:640px){
-  .gallery img{height:200px}
-  .gallery-actions{gap:12px}
-  .menu-btns{flex-direction:column}
-  .menu-btns .btn{width:100%;justify-content:center}
-  .event-collage{grid-template-columns:1fr 1fr}
-  .event-collage .tall{grid-row:auto;min-height:200px}
-}
-
-/* 7. Фиксированная шапка не перекрывает hero на мобиле */
-.hero-inner{padding-top:clamp(96px,12vw,140px)}
-@media(max-width:560px){.hero-inner{padding-top:96px}}
-</style>
 </head>
 <body>
 
@@ -552,9 +566,9 @@ section[id]{scroll-margin-top:96px}
   <nav class="h-nav" id="hnav">
     <a href="#club" class="on">Наш клуб</a>
     <a href="#route">Как добраться</a>
+    <a href="#prices">Цены</a>
     <a href="#events">Мероприятия</a>
     <a href="#menu">Меню</a>
-    <a href="#gallery">Галерея</a>
   </nav>
   <div class="h-phone">
     <b><a href="tel:+79881966054" data-goal="call">+7 988 196-60-54</a></b>
@@ -680,7 +694,7 @@ section[id]{scroll-margin-top:96px}
       </div>
     </div>
   </div>
-  <div class="reveal" style="margin-top:clamp(28px,4vw,48px)">
+  <div style="display:grid;gap:clamp(28px,3.4vw,48px);margin-top:clamp(28px,4vw,48px);grid-template-columns:1fr" class="reveal">
     <div style="text-align:center">
       <p class="route-text">Ближайшее метро — <b>Владыкино</b>: выход в сторону Ботанической улицы, дойти пешком <b>за 3 минуты</b>. Рядом также МЦК Владыкино и м. Окружная. Работаем <b>с 14:00 ежедневно</b>: в будни до 02:00, в пятницу и субботу — до 05:00.</p>
       <div class="help-card">
@@ -691,6 +705,117 @@ section[id]{scroll-margin-top:96px}
         </div>
       </div>
     </div>
+    <div class="map-wrap" style="border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;position:relative;background:#131009;aspect-ratio:16/8;min-height:320px">
+      <iframe src="https://yandex.ru/map-widget/v1/?oid=169194441350&z=16" loading="lazy" title="Квартира №9 на карте" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.9)"></iframe>
+      <a target="_blank" rel="noopener" href="https://yandex.ru/maps/?mode=routes&rtext=~55.846482,37.586994&rtt=pd" data-goal="route" style="position:absolute;top:14px;right:14px;z-index:2;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:rgba(12,11,9,.82);backdrop-filter:blur(10px);border:1px solid var(--line);color:var(--gold);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.6" stroke="currentColor" stroke-width="1.6"/></svg>
+        Маршрут
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ЦЕНЫ -->
+<section class="section prices" id="prices">
+  <div class="sec-head reveal">
+    <div>
+      <h2 class="sec-title">Цены <span class="accent">в нашем клубе</span></h2>
+      <p class="sec-desc">Будние тарифы; вечером и в выходные цены выше — точную стоимость покажет <b>онлайн-бронь за минуту</b>.</p>
+    </div>
+  </div>
+  <div class="tabs reveal" id="priceTabs">
+    <button class="tab on" data-p="0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.2"/><path d="M12 7.5V5M12 19v-2.5M7.5 12H5M19 12h-2.5" stroke="currentColor" stroke-width="1.2"/></svg>
+      Пул</button>
+    <button class="tab" data-p="1">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 4l9 6.5M5 9.5V20h14V9.5M9.5 20v-5h5v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      VIP-комнаты</button>
+    <button class="tab" data-p="2">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="12" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M8 21h8M9 9.5l-1.5 2h3L9 13.5M15 9.5l-1.5 2h3L15 13.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      PS5 и игры</button>
+  </div>
+
+  <div class="price-panel on reveal" data-pane="0">
+    <div class="price-rows">
+      <div class="price-box">
+        <div class="nm">Orange · Purple · Burgundy · Violet</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">Аренда стола и инвентаря, от 1 часа. Вечером и в выходные тариф выше — точную стоимость покажет онлайн-бронь.</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт до 17:00</div><div class="p">500 ₽/ч</div></div>
+        </div>
+      </div>
+      <div class="price-box">
+        <div class="nm">Camel · Wine · Dark Grey</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">Столы с собственной посадочной зоной. Вечером и в выходные тариф выше — точную стоимость покажет онлайн-бронь.</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт</div><div class="p">950 ₽/ч</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="price-photo"><img src="assets/img/table-purple.jpg" alt="Стол Purple" loading="lazy"><span class="cap">Большой зал · 7 столов</span></div>
+  </div>
+
+  <div class="price-panel reveal" data-pane="1">
+    <div class="price-rows">
+      <div class="price-box">
+        <div class="nm">VIP-зал Fuchsia</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">Пул 9 футов, настольные игры, ТВ, музыкальная станция</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт</div><div class="p">1 200 ₽/ч</div></div>
+        </div>
+      </div>
+      <div class="price-box">
+        <div class="nm">VIP-комната под ключ</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">Пул 9 футов, PS5, настолки, ТВ и музыкальная станция</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт</div><div class="p">1 500 ₽/ч</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="price-photo"><img src="assets/img/vip-blue.jpg" alt="VIP-зал" loading="lazy"><span class="cap">VIP-комнаты · до 50 гостей</span></div>
+  </div>
+
+  <div class="price-panel reveal" data-pane="2">
+    <div class="price-rows">
+      <div class="price-box">
+        <div class="nm">Yellow Gaming Room · PS5</div>
+        <button class="btn btn-solid go js-book" data-goal="book">Бронь<span class="arr" style="width:30px;height:30px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="nt">4K-телевизор, аудиосистема, диваны и игры</div>
+        <div class="vals">
+          <div class="val"><div class="t">Пн–Чт</div><div class="p">300 ₽/ч</div></div>
+        </div>
+      </div>
+      <div class="price-box">
+        <div class="nm">Настольные игры</div>
+        <div class="nt">«Колонизаторы» и другие — в VIP-комнатах и у стола</div>
+        <div class="vals">
+          <div class="val"><div class="p">бесплатно</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="price-photo"><img src="assets/img/ps5.jpg" alt="PlayStation 5" loading="lazy"><span class="cap">Игровая комната</span></div>
+  </div>
+
+  <div class="gallery reveal" id="gallery">
+    <img src="assets/img/table-orange.jpg" alt="Стол Orange" loading="lazy">
+    <img src="assets/img/table-red.jpg" alt="Стол в большом зале" loading="lazy">
+    <img src="assets/img/table-grey.jpg" alt="Стол Camel" loading="lazy">
+    <img src="assets/img/vip-room.jpg" alt="VIP-комната" loading="lazy">
+    <img src="assets/img/table-pink.jpg" alt="VIP-зал Fuchsia" loading="lazy">
+    <img src="assets/img/table-burgundy.jpg" alt="Стол Burgundy" loading="lazy">
+  </div>
+  <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:14px">
+    <div class="gal-nav">
+      <button id="galPrev" aria-label="Назад"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="galNext" aria-label="Вперёд"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <button class="btn btn-solid js-book" data-goal="book">Забронировать стол
+      <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
   </div>
 </section>
 
@@ -700,9 +825,9 @@ section[id]{scroll-margin-top:96px}
     <div>
       <h2 class="sec-title">Проведение <span class="accent">мероприятий</span><br>и корпоративов</h2>
     </div>
-    <div class="tabs reveal" id="eventTabs" style="margin-top:0;min-width:min(480px,100%);display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:10px">
-      <button class="tab on" data-e="0" style="display:flex;align-items:center;justify-content:center;gap:12px;border:1px solid var(--line);border-radius:16px;padding:17px 14px;background:var(--gold);color:#0C0B09;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase">VIP-комната</button>
-      <button class="tab" data-e="1" style="display:flex;align-items:center;justify-content:center;gap:12px;border:1px solid var(--line);border-radius:16px;padding:17px 14px;background:transparent;color:var(--muted);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase">Весь зал</button>
+    <div class="tabs reveal" id="eventTabs" style="margin-top:0;min-width:min(480px,100%)">
+      <button class="tab on" data-e="0">VIP-комната</button>
+      <button class="tab" data-e="1">Весь зал</button>
     </div>
   </div>
   <div class="event-grid reveal">
@@ -726,46 +851,33 @@ section[id]{scroll-margin-top:96px}
 </section>
 
 <!-- МЕНЮ -->
-<section class="section" id="menu">
-  <div class="sec-head reveal">
-    <div>
+<section class="section" id="menu" style="padding-top:0">
+  <div class="menu-grid">
+    <div class="reveal">
       <h2 class="sec-title">Бар и <span class="accent">кухня</span></h2>
       <p class="sec-desc">Вход со своей едой и напитками не предусмотрен — но это и не нужно: у нас <b>полноценная кухня и бар</b>. Пенное, коктейли, чай и кофе, закуски, пицца и горячее принесём прямо к вашему столу, пока вы играете.</p>
+      <div class="menu-hits">
+        <div class="hit"><span>Пицца «Маргарита»</span><i></i><b>690 ₽</b></div>
+        <div class="hit"><span>Хот-дог</span><i></i><b>490 ₽</b></div>
+        <div class="hit"><span>Пенное светлое 0,5 л</span><i></i><b>590 ₽</b></div>
+        <div class="hit"><span>Чай с персиком</span><i></i><b>450 ₽</b></div>
+      </div>
+      <div class="menu-btns">
+        <button class="btn btn-solid js-menu" data-menu="food">Меню кухни
+          <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <button class="btn js-menu" data-menu="bar">Меню бара
+          <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="menu-btns reveal">
-    <button class="btn btn-solid js-menu" data-menu="food">Меню кухни
-      <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </button>
-    <button class="btn js-menu" data-menu="bar">Меню бара
-      <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </button>
-  </div>
-</section>
-
-<!-- ГАЛЕРЕЯ (заменяет прежний блок «Цены») -->
-<section class="section prices" id="gallery">
-  <div class="sec-head reveal">
-    <div>
-      <h2 class="sec-title">Атмосфера <span class="accent">клуба</span></h2>
-      <p class="sec-desc">Залы, столы, VIP-комнаты и игровая зона — всё, что вы увидите в «Квартире №9». Актуальные тарифы и свободные слоты — в онлайн-бронировании, там же можно забронировать стол за минуту.</p>
-    </div>
-    <button class="btn btn-solid js-book" data-goal="book">Забронировать стол
-      <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </button>
-  </div>
-  <div class="gallery reveal" id="galleryStrip">
-    <img src="assets/img/table-orange.jpg" alt="Стол Orange" loading="lazy">
-    <img src="assets/img/table-red.jpg" alt="Стол в большом зале" loading="lazy">
-    <img src="assets/img/table-grey.jpg" alt="Стол Camel" loading="lazy">
-    <img src="assets/img/vip-room.jpg" alt="VIP-комната" loading="lazy">
-    <img src="assets/img/table-pink.jpg" alt="VIP-зал Fuchsia" loading="lazy">
-    <img src="assets/img/table-burgundy.jpg" alt="Стол Burgundy" loading="lazy">
-  </div>
-  <div class="reveal gallery-actions">
-    <div class="gal-nav">
-      <button id="galPrev" aria-label="Назад"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button id="galNext" aria-label="Вперёд"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="menu-marquee reveal">
+      <div class="menu-track">
+        <img class="js-menu" data-menu="food" src="assets/img/food-menu.jpg" alt="Меню кухни" loading="lazy">
+        <img class="js-menu" data-menu="bar" src="assets/img/bar-menu.jpg" alt="Меню бара" loading="lazy">
+        <img class="js-menu" data-menu="food" src="assets/img/food-menu.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img class="js-menu" data-menu="bar" src="assets/img/bar-menu.jpg" alt="" loading="lazy" aria-hidden="true">
+      </div>
     </div>
   </div>
 </section>
@@ -797,9 +909,9 @@ section[id]{scroll-margin-top:96px}
     </div>
     <div class="f-col">
       <div class="h">Клуб</div>
+      <a href="#prices">Цены</a>
       <a href="#events">Мероприятия</a>
       <a href="#menu">Меню</a>
-      <a href="#gallery">Галерея</a>
       <a href="https://yandex.ru/maps/org/169194441350" target="_blank" rel="noopener" data-goal="reviews">Отзывы на Яндекс Картах</a>
     </div>
   </div>
@@ -829,9 +941,9 @@ section[id]{scroll-margin-top:96px}
     <nav>
       <a class="nav-link" href="#club" data-nav>Наш клуб <small>залы и столы</small></a>
       <a class="nav-link" href="#route" data-nav>Как добраться <small>адрес и метро</small></a>
+      <a class="nav-link" href="#prices" data-nav>Цены <small>пул · VIP · PS5</small></a>
       <a class="nav-link" href="#events" data-nav>Мероприятия <small>дни рождения</small></a>
       <a class="nav-link" href="#menu" data-nav>Меню <small>бар и кухня</small></a>
-      <a class="nav-link" href="#gallery" data-nav>Галерея <small>фото клуба</small></a>
     </nav>
     <div class="nav-foot">
       <a href="tel:+79881966054" data-goal="call">Позвонить</a>
@@ -931,12 +1043,21 @@ section[id]{scroll-margin-top:96px}
   document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
 })();
 
+/* ===== Вкладки цен ===== */
+(function(){
+  const tabs=[...document.querySelectorAll('#priceTabs .tab')];
+  const panes=[...document.querySelectorAll('.price-panel')];
+  tabs.forEach(t=>t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('on'));t.classList.add('on');
+    panes.forEach(p=>p.classList.toggle('on',p.dataset.pane===t.dataset.p));
+  }));
+})();
+
 /* ===== Вкладки мероприятий ===== */
 (function(){
   const tabs=[...document.querySelectorAll('#eventTabs .tab')];
   const collage=document.getElementById('eventCollage');
   const text=document.getElementById('eventText');
-  if(!tabs.length||!collage||!text)return;
   const SETS=[
     {
       imgs:['assets/img/vip-room.jpg','assets/img/table-pink.jpg','assets/img/vip-blue.jpg'],
@@ -948,16 +1069,7 @@ section[id]{scroll-margin-top:96px}
     }
   ];
   tabs.forEach(t=>t.addEventListener('click',()=>{
-    tabs.forEach(x=>{
-      x.classList.remove('on');
-      x.style.background='transparent';
-      x.style.color='var(--muted)';
-      x.style.borderColor='var(--line)';
-    });
-    t.classList.add('on');
-    t.style.background='var(--gold)';
-    t.style.color='#0C0B09';
-    t.style.borderColor='var(--gold)';
+    tabs.forEach(x=>x.classList.remove('on'));t.classList.add('on');
     const s=SETS[+t.dataset.e];
     [...collage.querySelectorAll('img')].forEach((im,i)=>im.src=s.imgs[i]);
     text.querySelector('p.sec-desc').outerHTML=s.html;
@@ -966,13 +1078,10 @@ section[id]{scroll-margin-top:96px}
 
 /* ===== Галерея: прокрутка ===== */
 (function(){
-  const g=document.getElementById('galleryStrip');
-  if(!g)return;
+  const g=document.getElementById('gallery');
   const step=()=>g.clientWidth*0.7;
-  const next=document.getElementById('galNext');
-  const prev=document.getElementById('galPrev');
-  if(next)next.addEventListener('click',()=>g.scrollBy({left:step(),behavior:'smooth'}));
-  if(prev)prev.addEventListener('click',()=>g.scrollBy({left:-step(),behavior:'smooth'}));
+  document.getElementById('galNext').addEventListener('click',()=>g.scrollBy({left:step(),behavior:'smooth'}));
+  document.getElementById('galPrev').addEventListener('click',()=>g.scrollBy({left:-step(),behavior:'smooth'}));
 })();
 
 /* ===== Появление при скролле ===== */
@@ -981,6 +1090,7 @@ section[id]{scroll-margin-top:96px}
     if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
   }),{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  /* страховка: если наблюдатель не сработал, показываем контент */
   setTimeout(()=>{
     document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
       const r=el.getBoundingClientRect();
@@ -999,7 +1109,6 @@ section[id]{scroll-margin-top:96px}
 (function(){
   const links=[...document.querySelectorAll('#hnav a')];
   const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-  if(!secs.length)return;
   const io=new IntersectionObserver(es=>es.forEach(e=>{
     if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));
   }),{rootMargin:'-35% 0px -55% 0px'});
@@ -1032,7 +1141,7 @@ section[id]{scroll-margin-top:96px}
       '<p><b style="color:var(--text)">2. Опоздания.</b> Если вы задерживаетесь — предупредите администратора по телефону. Без предупреждения бронь до 2 часов аннулируется при неявке через 20 минут.</p>'+
       '<p><b style="color:var(--text)">3. Еда и напитки.</b> Вход со своей едой и напитками не предусмотрен — заказы принимаются из меню бара и кухни Клуба. Исключение: бронь игровых столов во всём зале или в VIP-комнате под своё мероприятие — в этом случае стоимость брони увеличивается в 2 раза, свой кейтеринг допускается.</p>'+
       '<p><b style="color:var(--text)">4. Оплата.</b> Принимаются банковские карты, наличные и переводы. Часы работы: ежедневно с 14:00, в будни до 02:00, в пятницу и субботу — до 05:00.</p>'+
-      '<p><b style="color:var(--text)">5. Поведение и имущество.</b> Гости обязаны бережно относиться к инфраструктуре Клуба: столам, киям, мебели и оборудованию. В случае порчи имущества по вине гость возмещает ущерб по фактической стоимости. Администрация вправе отказать в обслуживании лицам в состоянии сильного алкогольного опьянения и нарушающим порядок.</p>'+
+      '<p><b style="color:var(--text)">5. Поведение и имущество.</b> Гости обязаны бережно относиться к инвраструктуре Клуба: столам, киям, мебели и оборудованию. В случае порчи имущества по вине гость возмещает ущерб по фактической стоимости. Администрация вправе отказать в обслуживании лицам в состоянии сильного алкогольного опьянения и нарушающим порядок.</p>'+
       '<p><b style="color:var(--text)">6.</b> Находясь в Клубе, гость соглашается с настоящими правилами. Вопросы решаются с администратором на месте или по телефону +7 988 196-60-54.</p>'
     }
   };
@@ -1151,11 +1260,13 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
   }
   function valOf(k){return store[k]||DEF[k];}
 
+  /* восстановить сохранённые настройки */
   Object.keys(store).forEach(k=>{
     if(k==='--disp')root.style.setProperty(k,FONTS[store[k]]||FONTS.Unbounded);
     else{root.style.setProperty(k,store[k]);derive(k,store[k]);}
   });
 
+  /* --- построить элементы панели --- */
   const bodyEl=document.getElementById('dzBody');
   function render(){
     bodyEl.innerHTML='';
@@ -1209,12 +1320,14 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
   }
   render();
 
+  /* --- показать / скрыть --- */
   const panel=document.getElementById('dzPanel');panel.hidden=false;
   const card=document.getElementById('dzCard');
   document.getElementById('dzToggle').addEventListener('click',()=>card.classList.toggle('open'));
   document.getElementById('dzClose').addEventListener('click',()=>card.classList.remove('open'));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')card.classList.remove('open');});
 
+  /* --- экспорт --- */
   function exportTxt(){
     const out=[];
     Object.keys(store).forEach(k=>{
@@ -1246,6 +1359,7 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
     }
   });
 
+  /* --- сброс --- */
   document.getElementById('dzReset').addEventListener('click',()=>{
     localStorage.removeItem(KEY);
     Object.keys(store).forEach(k=>root.style.removeProperty(k));
@@ -1299,8 +1413,10 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
     if(e.text!=null)el.innerText=e.text;
     if(e.img)el.src=e.img;
   }
+  /* восстановить сохранённые правки элементов */
   Object.entries(edits).forEach(([p,e])=>{const el=findEl(p);if(el)applyEdit(el,e);});
 
+  /* --- всплывающая панелька действий и подсказка --- */
   const tools=document.createElement('div');tools.id='dzTools';
   tools.innerHTML='<button data-a="text">✏ Текст</button><button data-a="up">↑ Родитель</button><button data-a="img" style="display:none">🖼 Фото</button><button data-a="hide">Скрыть</button><button data-a="x">✕</button>';
   document.body.appendChild(tools);
@@ -1350,6 +1466,7 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
     ed.styles[k]=v;sel.style.setProperty(k,v);save();
   }
 
+  /* --- блок управления в боковой панели --- */
   const note=document.querySelector('#dzPanel .dz-note');
   const box=document.createElement('div');box.id='dzElBox';
   note.insertAdjacentElement('afterend',box);
@@ -1435,6 +1552,7 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
   }
   renderElBox();
 
+  /* --- панелька действий --- */
   tools.addEventListener('click',e=>{
     const b=e.target.closest('button');if(!b||!sel)return;
     e.stopPropagation();
@@ -1456,6 +1574,7 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
     }
   });
 
+  /* --- редактирование текста --- */
   function startTextEdit(el){
     if(!el||el.tagName==='IMG'||el.closest('svg'))return;
     select(el);
@@ -1469,6 +1588,7 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
     },{once:true});
   }
 
+  /* --- глобальные события режима --- */
   document.addEventListener('pointerover',e=>{
     if(!editMode||isOurs(e.target)||e.target===document.body||e.target===document.documentElement)return;
     if(hoverEl&&hoverEl!==sel)hoverEl.classList.remove('dz-hover');
@@ -1519,6 +1639,7 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
     }
   });
 
+  /* --- сброс «всё» из основной панели чистит и правки элементов --- */
   const rst=document.getElementById('dzReset');
   if(rst)rst.addEventListener('click',()=>{
     if(Object.keys(edits).length){
@@ -1527,6 +1648,7 @@ document.querySelectorAll('[data-goal]').forEach(el=>{
     }
   });
 
+  /* --- экспорт правок элементов вместе с настройками --- */
   window.__dzExportExtra=function(){
     const lines=[];
     Object.entries(edits).forEach(([p,e])=>{
